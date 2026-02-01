@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Application and Resume Writing</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #f5f7fa;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .presentation-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .slide {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        margin-bottom: 30px;
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .slide-header {
+        margin-bottom: 30px;
+        border-bottom: 2px solid #e1e8ed;
+        padding-bottom: 15px;
+      }
+
+      .slide-title {
+        font-family: "Montserrat", sans-serif;
+        font-size: 2.5rem;
+        color: #1a73e8;
+        margin-bottom: 10px;
+      }
+
+      .slide-subtitle {
+        font-size: 1.2rem;
+        color: #5f6368;
+      }
+
+      .slide-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .text-section {
+        margin-bottom: 20px;
+      }
+
+      .text-section h3 {
+        font-family: "Montserrat", sans-serif;
+        color: #1a73e8;
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+      }
+
+      .text-section p {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+
+      .image-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+      }
+
+      .image-container img {
+        max-width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .list-section {
+        margin-bottom: 20px;
+      }
+
+      .list-section ul {
+        padding-left: 25px;
+      }
+
+      .list-section li {
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+      }
+
+      .two-column {
+        display: flex;
+        gap: 30px;
+        margin-top: 20px;
+      }
+
+      .column {
+        flex: 1;
+      }
+
+      .highlight-box {
+        background-color: #e8f0fe;
+        border-left: 4px solid #1a73e8;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .navigation {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-btn {
+        background-color: #1a73e8;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .nav-btn:hover {
+        background-color: #0d47a1;
+        transform: scale(1.1);
+      }
+
+      .progress-indicator {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 5px;
+        background-color: #1a73e8;
+        z-index: 101;
+        transition: width 0.3s ease;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 20px;
+        color: #5f6368;
+        font-size: 0.9rem;
+      }
+
+      .info-card {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .info-card h4 {
+        color: #1a73e8;
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        border: 1px solid #e1e8ed;
+        padding: 12px;
+        text-align: left;
+      }
+
+      .comparison-table th {
+        background-color: #e8f0fe;
+        color: #1a73e8;
+      }
+
+      .comparison-table tr:nth-child(even) {
+        background-color: #f8f9fa;
+      }
+
+      .qa-pair {
+        margin-bottom: 25px;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+      }
+
+      .question {
+        font-weight: 500;
+        color: #1a73e8;
+        margin-bottom: 10px;
+      }
+
+      .answer {
+        padding-left: 20px;
+      }
+
+      .protocol-card {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+      }
+
+      .protocol-icon {
+        font-size: 2rem;
+        color: #1a73e8;
+        margin-right: 15px;
+        width: 60px;
+        text-align: center;
+      }
+
+      .protocol-info {
+        flex: 1;
+      }
+
+      .protocol-info h4 {
+        margin-bottom: 5px;
+        color: #1a73e8;
+      }
+
+      .frame-structure {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 20px 0;
+      }
+
+      .frame-field {
+        background-color: #e8f0fe;
+        border: 1px solid #1a73e8;
+        border-radius: 4px;
+        padding: 10px;
+        text-align: center;
+        flex-grow: 1;
+        min-width: 100px;
+      }
+
+      .frame-field.primary {
+        background-color: #1a73e8;
+        color: white;
+        font-weight: bold;
+      }
+
+      .process-flow {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+
+      .process-step {
+        background-color: #f8f9fa;
+        border: 1px solid #e1e8ed;
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+        width: 150px;
+      }
+
+      .process-arrow {
+        color: #1a73e8;
+        font-size: 1.5rem;
+        margin: 0 10px;
+      }
+
+      .bit-position {
+        display: flex;
+        align-items: center;
+        margin: 5px 0;
+      }
+
+      .bit-position-number {
+        width: 30px;
+        height: 30px;
+        background-color: #1a73e8;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+        font-weight: bold;
+      }
+
+      .bit-position-value {
+        background-color: #f8f9fa;
+        border: 1px solid #e1e8ed;
+        border-radius: 4px;
+        padding: 5px 10px;
+        min-width: 30px;
+        text-align: center;
+      }
+
+      .bit-position.parity {
+        background-color: #e8f0fe;
+      }
+
+      .bit-position.data {
+        background-color: #f8f9fa;
+      }
+
+      .byte-stuffing-example {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+
+      .byte {
+        background-color: #f8f9fa;
+        border: 1px solid #e1e8ed;
+        border-radius: 4px;
+        padding: 10px;
+        margin: 0 5px;
+        min-width: 40px;
+        text-align: center;
+      }
+
+      .byte.flag {
+        background-color: #1a73e8;
+        color: white;
+        font-weight: bold;
+      }
+
+      .byte.esc {
+        background-color: #f1c40f;
+        color: white;
+        font-weight: bold;
+      }
+
+      .byte.stuffed {
+        background-color: #e8f0fe;
+        border: 1px dashed #1a73e8;
+      }
+
+      .error-types {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+
+      .error-type {
+        text-align: center;
+        width: 200px;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .error-type img {
+        max-width: 100%;
+        height: 100px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+      }
+
+      .error-type h4 {
+        color: #1a73e8;
+        margin-bottom: 5px;
+      }
+
+      .email-example {
+        background-color: #f8f9fa;
+        border: 1px solid #e1e8ed;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px 0;
+        font-family: monospace;
+        font-size: 0.9rem;
+      }
+
+      .email-header {
+        border-bottom: 1px solid #e1e8ed;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+      }
+
+      .email-subject {
+        font-weight: bold;
+        color: #1a73e8;
+      }
+
+      .email-body {
+        white-space: pre-wrap;
+      }
+
+      .good-example {
+        border-left: 4px solid #34a853;
+      }
+
+      .bad-example {
+        border-left: 4px solid #ea4335;
+      }
+
+      .example-label {
+        font-weight: bold;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      .good-label {
+        color: #34a853;
+      }
+
+      .bad-label {
+        color: #ea4335;
+      }
+
+      .resume-section {
+        background-color: #f8f9fa;
+        border: 1px solid #e1e8ed;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px 0;
+      }
+
+      .resume-section h4 {
+        color: #1a73e8;
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+        border-bottom: 1px solid #e1e8ed;
+        padding-bottom: 5px;
+      }
+
+      .resume-item {
+        margin-bottom: 15px;
+      }
+
+      .resume-item h5 {
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .resume-item p {
+        margin-bottom: 5px;
+        font-size: 1rem;
+      }
+
+      .resume-item ul {
+        padding-left: 20px;
+        margin-top: 5px;
+      }
+
+      .resume-item li {
+        margin-bottom: 5px;
+        font-size: 1rem;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .contact-item i {
+        color: #1a73e8;
+      }
+
+      @media (max-width: 768px) {
+        .slide {
+          padding: 20px;
+        }
+
+        .slide-title {
+          font-size: 1.8rem;
+        }
+
+        .two-column {
+          flex-direction: column;
+        }
+
+        .navigation {
+          bottom: 20px;
+          top: auto;
+          flex-direction: row;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="progress-indicator" id="progressBar"></div>
+
+    <div class="navigation">
+      <button class="nav-btn" id="topBtn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+      <button class="nav-btn" id="downBtn" title="Go to bottom">
+        <i class="fas fa-arrow-down"></i>
+      </button>
+    </div>
+
+    <div class="presentation-container">
+      <!-- Slide 1: Title Slide -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Job Application and Resume Writing</h1>
+          <p class="slide-subtitle">
+            Mastering Professional Job Search Communication
+          </p>
+        </div>
+        <div class="slide-content">
+          <div class="image-container">
+            <img
+              src="https://www.getsetresumes.com/blog/wp-content/uploads/2024/06/resume-application-employment-form-concept_53876-132184.jpg"
+              alt="Job Application and Resume Writing"
+            />
+          </div>
+          <div class="text-section">
+            <p>
+              Job applications are the first step in securing employment, making
+              them a crucial aspect of professional communication. A
+              well-crafted job application showcases your qualifications,
+              skills, and suitability for the position, often determining
+              whether you progress to the next stage of the hiring process.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Understanding the Job Application Process -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Understanding the Job Application Process</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              The job application process is a structured procedure that
+              employers use to identify, evaluate, and select candidates for a
+              job. Understanding this process is essential for crafting a strong
+              application that aligns with the employer's expectations.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>The Job Posting</li>
+              <li>Preparing the Necessary Documents</li>
+              <li>Submitting the Application</li>
+              <li>The Selection Process</li>
+              <li>Understanding Applicant Tracking Systems (ATS)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: The Job Posting and Document Preparation -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">The Job Posting and Document Preparation</h2>
+        </div>
+        <div class="slide-content">
+          <div class="two-column">
+            <div class="column">
+              <div class="info-card">
+                <h4>The Job Posting</h4>
+                <p>
+                  The application process begins with a job posting, which
+                  outlines the role, responsibilities, qualifications, and
+                  skills required for the position.
+                </p>
+                <div class="highlight-box">
+                  <p>
+                    Tip: Identify the keywords used in the job posting, as these
+                    are often the same terms employers use when reviewing
+                    applications.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="info-card">
+                <h4>Preparing Documents</h4>
+                <p>
+                  Most job applications require specific documents, such as a
+                  resume, cover letter, and sometimes an application form.
+                </p>
+                <ul>
+                  <li>Resume</li>
+                  <li>Cover Letter</li>
+                  <li>Portfolio (if applicable)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Submitting Applications and Selection Process -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">
+            Submitting Applications and Selection Process
+          </h2>
+        </div>
+        <div class="slide-content">
+          <div class="two-column">
+            <div class="column">
+              <div class="info-card">
+                <h4>Submitting the Application</h4>
+                <p>
+                  Job applications can be submitted through various channels:
+                </p>
+                <ul>
+                  <li>Online Job Portals</li>
+                  <li>Company Websites</li>
+                  <li>Email Applications</li>
+                </ul>
+              </div>
+            </div>
+            <div class="column">
+              <div class="info-card">
+                <h4>The Selection Process</h4>
+                <p>
+                  After submitting your application, the employer reviews it to
+                  determine if you meet the minimum qualifications. If
+                  successful, you may be invited for an interview.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Many companies use ATS software to filter applications before they
+              are reviewed by human recruiters. These systems scan applications
+              for specific keywords related to the job.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Writing a Strong Job Application -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Writing a Strong Job Application</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              A strong job application demonstrates that you not only meet the
+              qualifications for the position but are also a good cultural fit
+              for the company.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Research the Company and Role:</strong> Before writing
+                your application, research the company to understand its values,
+                goals, and work culture.
+              </li>
+              <li>
+                <strong>Customize Your Application for Each Job:</strong> One of
+                the most important aspects of a strong job application is
+                customization. Sending the same generic resume and cover letter
+                to every employer significantly reduces your chances of standing
+                out.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Application Form vs. Email Application -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Application Form vs. Email Application</h2>
+        </div>
+        <div class="slide-content">
+          <div class="two-column">
+            <div class="column">
+              <div class="info-card">
+                <h4>Application Forms</h4>
+                <p>
+                  Many companies use online forms for job applications,
+                  particularly large corporations with high volumes of
+                  applicants.
+                </p>
+                <p><strong>Pros:</strong></p>
+                <ul>
+                  <li>Ensure all relevant information is provided</li>
+                  <li>Make it easier for employers to compare candidates</li>
+                </ul>
+                <p><strong>Cons:</strong></p>
+                <ul>
+                  <li>Lack flexibility for creativity</li>
+                  <li>Can be time-consuming</li>
+                </ul>
+              </div>
+            </div>
+            <div class="column">
+              <div class="info-card">
+                <h4>Email Applications</h4>
+                <p>
+                  An email application involves sending your cover letter and
+                  resume directly to a hiring manager or HR department.
+                </p>
+                <p><strong>Pros:</strong></p>
+                <ul>
+                  <li>Allows for a personalized touch</li>
+                  <li>More flexibility in presentation</li>
+                </ul>
+                <p><strong>Cons:</strong></p>
+                <ul>
+                  <li>Can be difficult to stand out</li>
+                  <li>Need to be careful about formatting</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Key Information to Include in Job Applications -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Key Information to Include</h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Personal Details:</strong> Full name, contact
+                information (phone number and email), and sometimes your
+                address.
+              </li>
+              <li>
+                <strong>Professional Summary:</strong> Briefly outlines your
+                career, key skills, and what you bring to the job.
+              </li>
+              <li>
+                <strong>Work Experience:</strong> List your previous jobs,
+                starting with the most recent, and include key responsibilities
+                and accomplishments.
+              </li>
+              <li>
+                <strong>Education:</strong> Include your academic
+                qualifications, starting with the most recent.
+              </li>
+              <li>
+                <strong>Skills and Certifications:</strong> Include any relevant
+                skills, certifications, or licenses that pertain to the job.
+              </li>
+              <li>
+                <strong>References:</strong> Some job applications require
+                references. Include the names and contact information of people
+                who can vouch for your work experience.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Tailoring Your Application to the Job -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Tailoring Your Application to the Job</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Tailoring your application to the job is one of the most effective
+              ways to stand out from other applicants.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Use Keywords from the Job Posting:</strong> Many
+                companies use automated systems to scan applications for
+                keywords.
+              </li>
+              <li>
+                <strong>Highlight Relevant Experience:</strong> Focus on your
+                work experience that is most relevant to the job.
+              </li>
+              <li>
+                <strong>Show Enthusiasm for the Company:</strong> In your cover
+                letter, demonstrate that you have researched the company and
+                understand its mission and values.
+              </li>
+              <li>
+                <strong>Address Any Gaps in Your Application:</strong> If there
+                are any potential weaknesses, address these proactively.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9: Follow-Up Communication After Submitting a Job Application -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Follow-Up Communication</h2>
+          <p class="slide-subtitle">After Submitting a Job Application</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Follow-up communication after submitting a job application is an
+              essential part of the job search process. It demonstrates your
+              interest in the position, helps keep your application top-of-mind
+              for employers, and provides an opportunity to inquire about the
+              next steps.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>Demonstrates initiative</li>
+              <li>Keeps you on the employer's radar</li>
+              <li>Clarifies next steps</li>
+              <li>Shows professionalism</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10: Timing Your Follow-Up Communication -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Timing Your Follow-Up Communication</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              One of the most critical aspects of follow-up communication is
+              timing. Sending a follow-up too soon can make you appear
+              impatient, while waiting too long might lead the employer to think
+              you're disinterested.
+            </p>
+          </div>
+          <div class="info-card">
+            <h4>General Guidelines</h4>
+            <ul>
+              <li>
+                Waiting 7-10 business days after submitting your application is
+                considered a good rule of thumb.
+              </li>
+              <li>
+                If the job posting specifies a timeline, respect that timeline.
+              </li>
+              <li>
+                After an interview, a shorter follow-up period (3-5 days) is
+                acceptable.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: Crafting a Professional Follow-Up Email -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Crafting a Professional Follow-Up Email</h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Subject Line:</strong> The subject line should be clear
+                and professional.
+              </li>
+              <li>
+                <strong>Polite Greeting:</strong> Address the recipient
+                professionally, using their title and last name if known.
+              </li>
+              <li>
+                <strong>Express Appreciation:</strong> Start your email by
+                thanking the employer for the opportunity to apply.
+              </li>
+              <li>
+                <strong>Reiterate Your Interest:</strong> Briefly restate your
+                enthusiasm for the position and the company.
+              </li>
+              <li>
+                <strong>Inquire Politely About the Status:</strong> Politely
+                inquire about the status of your application.
+              </li>
+              <li>
+                <strong>Closing:</strong> End the email on a positive and
+                courteous note.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 12: Sample Follow-Up Email -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Sample Follow-Up Email</h2>
+        </div>
+        <div class="slide-content">
+          <div class="email-example good-example">
+            <div class="email-header">
+              <div class="email-subject">
+                Subject: Follow-Up on Job Application: Marketing Specialist
+                Position
+              </div>
+            </div>
+            <div class="email-body">
+              Dear Ms. Smith, I hope this email finds you well. I wanted to
+              thank you again for considering my application for the Marketing
+              Specialist role at ABC Corporation. I am excited about the
+              opportunity to contribute to your team and am confident that my
+              skills in digital marketing and project management would be an
+              asset to your company. I wanted to follow up and inquire about the
+              status of my application. Could you please let me know if there
+              are any updates or next steps in the hiring process? Thank you for
+              your time and consideration. I look forward to hearing from you
+              soon. Please feel free to contact me if you need any additional
+              information. Best regards, John Doe (123) 456-7890
+              john.doe@email.com
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: Following Up on Multiple Applications -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Following Up on Multiple Applications</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              If you've applied for several jobs at different companies, it's
+              essential to keep track of each application and follow-up process.
+            </p>
+          </div>
+          <div class="info-card">
+            <h4>Tips for Managing Multiple Applications</h4>
+            <ul>
+              <li>
+                Create a spreadsheet to record when you applied, when you
+                followed up, and any responses you've received.
+              </li>
+              <li>
+                This helps ensure you don't accidentally follow up with the same
+                employer multiple times or forget to follow up at all.
+              </li>
+              <li>
+                Keep track of specific details about each position to
+                personalize your follow-ups.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 14: What to Do If You Don't Hear Back -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">What to Do If You Don't Hear Back</h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Send a second follow-up email:</strong> If you still
+                haven't heard back after 10-14 days of your first follow-up, it
+                may be appropriate to send a second, shorter email.
+              </li>
+              <li>
+                <strong>Focus on other opportunities:</strong> While waiting for
+                a response, continue applying for other jobs and attending
+                interviews.
+              </li>
+              <li>
+                <strong>Move on respectfully:</strong> If you don't receive a
+                response after your second follow-up, it may be time to move on.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              If you don't receive a response, it doesn't necessarily reflect on
+              your qualifications but could simply mean that the position has
+              been filled or the company has decided to move in a different
+              direction.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: Common Mistakes to Avoid When Following Up -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">
+            Common Mistakes to Avoid When Following Up
+          </h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Following up too soon:</strong> Contacting the employer
+                too soon after submitting your application can make you appear
+                impatient.
+              </li>
+              <li>
+                <strong>Being too pushy:</strong> Always maintain a polite and
+                respectful tone. Being too aggressive or demanding can create a
+                negative impression.
+              </li>
+              <li>
+                <strong
+                  >Sending multiple follow-ups in quick succession:</strong
+                >
+                If you haven't received a response, avoid sending multiple
+                follow-up emails within a short timeframe.
+              </li>
+              <li>
+                <strong>Not proofreading your email:</strong> Ensure that your
+                follow-up email is free of typos, grammatical errors, or unclear
+                language.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 16: Introduction to Resume Writing -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Resume Writing</h2>
+          <p class="slide-subtitle">
+            Creating Your Professional Marketing Tool
+          </p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Writing a strong resume is a critical skill in the job search
+              process, as it's often the first document that potential employers
+              review. A well-crafted resume not only highlights your
+              qualifications and experiences but also presents your skills in a
+              way that is tailored to the specific job you are applying for.
+            </p>
+          </div>
+          <div class="info-card">
+            <h4>Key Aspects of Resume Writing</h4>
+            <ul>
+              <li>Purpose and Importance</li>
+              <li>Key Sections</li>
+              <li>Formatting and Design</li>
+              <li>Tailoring for Specific Jobs</li>
+              <li>Avoiding Common Mistakes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 17: Purpose and Importance of a Resume -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Purpose and Importance of a Resume</h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>First Impression:</strong> A resume is often your first
+                opportunity to make a positive impression on employers. It must
+                be clear, concise, and well-organized to grab their attention
+                quickly.
+              </li>
+              <li>
+                <strong>Marketing Yourself:</strong> A resume is essentially
+                your marketing tool. It communicates who you are, what you've
+                accomplished, and what you can bring to the company.
+              </li>
+              <li>
+                <strong>Demonstrating Fit for the Job:</strong> Your resume
+                should be tailored to each job application to show how your
+                qualifications align with the job requirements.
+              </li>
+              <li>
+                <strong>Organizing Your Professional Story:</strong> A resume
+                provides a structured way to present your work history,
+                education, and skills.
+              </li>
+              <li>
+                <strong>Establishing Credibility:</strong> A well-written resume
+                reflects professionalism and attention to detail.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Key Sections of a Resume -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Key Sections of a Resume</h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>Contact Information</li>
+              <li>Objective or Summary</li>
+              <li>Work Experience</li>
+              <li>Education</li>
+              <li>Skills and Certifications</li>
+              <li>Additional Sections (e.g., Volunteer Work, Publications)</li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Each section provides a comprehensive view of your qualifications
+              and experiences, allowing potential employers to evaluate your fit
+              for the role.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 19: Contact Information Section -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Contact Information</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              The contact information section is straightforward but essential.
+              It should appear at the top of your resume, providing hiring
+              managers with the details they need to contact you.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Name:</strong> Your full name should be listed
+                prominently at the top of your resume.
+              </li>
+              <li>
+                <strong>Phone Number:</strong> Provide a phone number where you
+                can be easily reached.
+              </li>
+              <li>
+                <strong>Email Address:</strong> Use a professional email
+                address, ideally one that includes your name or initials.
+              </li>
+              <li>
+                <strong>LinkedIn Profile:</strong> Including a link to your
+                LinkedIn profile can provide employers with additional
+                information.
+              </li>
+              <li>
+                <strong>Location:</strong> You may want to provide your city and
+                state to indicate where you're based.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 20: Contact Information Example -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Contact Information Example</h2>
+        </div>
+        <div class="slide-content">
+          <div class="resume-section">
+            <div class="contact-info">
+              <div class="contact-item">
+                <i class="fas fa-user"></i>
+                <span>John Doe</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>john.doe@email.com</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>(123) 456-7890</span>
+              </div>
+              <div class="contact-item">
+                <i class="fab fa-linkedin"></i>
+                <span>linkedin.com/in/johndoe</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>New York, NY</span>
+              </div>
+            </div>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Ensure that this section is accurate and up to date. This is how
+              potential employers will contact you for interviews or additional
+              information.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 21: Objective or Summary Section -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Objective or Summary</h2>
+        </div>
+        <div class="slide-content">
+          <div class="two-column">
+            <div class="column">
+              <div class="info-card">
+                <h4>Objective Statement</h4>
+                <p>
+                  An objective statement outlines your career goals and what you
+                  hope to achieve in your next position.
+                </p>
+                <p><strong>Best for:</strong></p>
+                <ul>
+                  <li>Recent graduates</li>
+                  <li>Individuals changing careers</li>
+                  <li>Specific roles where career goals align</li>
+                </ul>
+              </div>
+            </div>
+            <div class="column">
+              <div class="info-card">
+                <h4>Summary Statement</h4>
+                <p>
+                  A summary statement highlights your key skills,
+                  accomplishments, and professional background.
+                </p>
+                <p><strong>Best for:</strong></p>
+                <ul>
+                  <li>Experienced professionals</li>
+                  <li>Those with a clear career path</li>
+                  <li>Highlighting specific achievements</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 22: Objective and Summary Examples -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Objective and Summary Examples</h2>
+        </div>
+        <div class="slide-content">
+          <div class="two-column">
+            <div class="column">
+              <div class="info-card">
+                <h4>Objective Example</h4>
+                <p>
+                  "Motivated recent graduate with a degree in Marketing seeking
+                  an entry-level position in digital marketing where I can apply
+                  my skills in SEO and content creation to help drive online
+                  engagement and brand awareness."
+                </p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="info-card">
+                <h4>Summary Example</h4>
+                <p>
+                  "Dynamic marketing professional with over 7 years of
+                  experience in developing and executing successful digital
+                  campaigns. Proven track record of increasing brand engagement
+                  by 30% and driving web traffic through SEO optimization and
+                  targeted social media strategies."
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Keep your objective or summary concise—one or two sentences is
+              enough for an objective, while a summary can be 2-4 sentences.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Work Experience Section -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Work Experience</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              The work experience section is the heart of your resume. It
+              provides potential employers with a detailed view of your
+              professional history, including the positions you've held, your
+              responsibilities, and your achievements.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Position Title:</strong> List your job title for each
+                role you've held.
+              </li>
+              <li>
+                <strong>Company Name and Location:</strong> Include the name of
+                the company and its location.
+              </li>
+              <li>
+                <strong>Employment Dates:</strong> List the months and years you
+                worked in each position.
+              </li>
+              <li>
+                <strong>Job Responsibilities:</strong> Provide a list of your
+                primary responsibilities.
+              </li>
+              <li>
+                <strong>Key Achievements:</strong> Highlight specific
+                achievements in each role.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 24: Work Experience Example -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Work Experience Example</h2>
+        </div>
+        <div class="slide-content">
+          <div class="resume-section">
+            <div class="resume-item">
+              <h5>Marketing Manager</h5>
+              <p>ABC Corporation | New York, NY</p>
+              <p>June 2018 – Present</p>
+              <ul>
+                <li>
+                  Developed and executed a content marketing strategy that
+                  increased website traffic by 40% over a six-month period.
+                </li>
+                <li>
+                  Managed a team of five marketing professionals, overseeing
+                  project timelines, budgets, and campaign performance.
+                </li>
+                <li>
+                  Collaborated with cross-functional teams, including sales and
+                  product development, to create integrated marketing campaigns.
+                </li>
+                <li>
+                  Spearheaded the launch of a new product line, resulting in a
+                  15% increase in annual revenue.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Use action verbs to start each bullet point (e.g., "Managed,"
+              "Developed," "Coordinated"). Quantify your achievements whenever
+              possible.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 25: Education Section -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Education</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              The education section of your resume is an essential part of your
+              professional profile, especially if you are a recent graduate or
+              applying for jobs that require specific educational
+              qualifications.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Degree(s) Earned:</strong> Start with the most recent
+                degree you've earned and work backward.
+              </li>
+              <li>
+                <strong>School Name and Location:</strong> Always list the full
+                name of the educational institution, including its location.
+              </li>
+              <li>
+                <strong>Dates Attended:</strong> The dates you attended school
+                should be included.
+              </li>
+              <li>
+                <strong>GPA (Optional):</strong> Including your GPA is optional
+                and should only be added if it is impressive.
+              </li>
+              <li>
+                <strong>Honors, Awards, and Distinctions:</strong> If you
+                graduated with honors, make sure to list this distinction.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 26: Education Example -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Education Example</h2>
+        </div>
+        <div class="slide-content">
+          <div class="resume-section">
+            <div class="resume-item">
+              <h5>Bachelor of Science in Computer Engineering</h5>
+              <p>University of California, Berkeley | Berkeley, CA</p>
+              <p>Graduated: May 2020</p>
+              <p>GPA: 3.8/4.0, Graduated with Honors (Magna Cum Laude)</p>
+            </div>
+          </div>
+          <div class="highlight-box">
+            <p>
+              For those with less work experience, the education section can be
+              expanded to highlight relevant coursework, academic projects, or
+              thesis work that align with the job you're applying for.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 27: Skills and Certifications Section -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Skills and Certifications</h2>
+        </div>
+        <div class="slide-content">
+          <div class="two-column">
+            <div class="column">
+              <div class="info-card">
+                <h4>Skills</h4>
+                <p>
+                  Skills are often presented in a bulleted format or as a simple
+                  list under a "Skills" heading, divided into sub-categories.
+                </p>
+                <p><strong>Types of Skills:</strong></p>
+                <ul>
+                  <li>Hard Skills (technical, job-specific)</li>
+                  <li>Soft Skills (personal attributes)</li>
+                </ul>
+              </div>
+            </div>
+            <div class="column">
+              <div class="info-card">
+                <h4>Certifications</h4>
+                <p>
+                  Certifications should be listed with their official name, the
+                  certifying body, and the date they were awarded.
+                </p>
+                <p><strong>Examples:</strong></p>
+                <ul>
+                  <li>Project Management Professional (PMP)</li>
+                  <li>AWS Certified Solutions Architect</li>
+                  <li>Google Analytics Certified</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 28: Skills and Certifications Example -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Skills and Certifications Example</h2>
+        </div>
+        <div class="slide-content">
+          <div class="resume-section">
+            <h4>Skills:</h4>
+            <ul>
+              <li>
+                <strong>Programming Languages:</strong> Python, JavaScript, SQL
+              </li>
+              <li><strong>Project Management:</strong> Agile, Scrum</li>
+              <li>
+                <strong>Software:</strong> Microsoft Office Suite, Adobe
+                Creative Cloud, Tableau
+              </li>
+            </ul>
+            <h4>Certifications:</h4>
+            <ul>
+              <li>
+                Certified ScrumMaster (CSM), Scrum Alliance – Issued June 2021
+              </li>
+              <li>AWS Certified Solutions Architect – Issued October 2020</li>
+              <li>Google Analytics Certified – Valid until December 2023</li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Tailoring this part to the job description is especially important
+              to pass through Applicant Tracking Systems (ATS) and demonstrate
+              that you have the necessary skills for the role.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 29: Additional Sections -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Additional Sections</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              In some cases, you may want to include additional sections on your
+              resume to further showcase relevant experiences or contributions
+              outside of your professional work.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Volunteer Work:</strong> Demonstrates commitment,
+                passion, and a willingness to contribute.
+              </li>
+              <li>
+                <strong>Publications:</strong> Shows expertise, particularly for
+                academic or research-oriented positions.
+              </li>
+              <li>
+                <strong>Professional Affiliations:</strong> Demonstrates
+                commitment to staying informed about industry trends.
+              </li>
+              <li>
+                <strong>Languages:</strong> Valuable for jobs that require
+                communication with international teams.
+              </li>
+              <li>
+                <strong>Conferences and Workshops:</strong> Highlights
+                continuous learning and engagement in your field.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 30: Formatting and Design Tips -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Formatting and Design Tips</h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Consistency:</strong> Maintain uniformity in font types,
+                sizes, bullet points, and margins throughout the document.
+              </li>
+              <li>
+                <strong>Font Choice:</strong> Use professional fonts like Arial,
+                Times New Roman, or Calibri. Font size for body text should be
+                between 10-12 points.
+              </li>
+              <li>
+                <strong>Use of White Space:</strong> Avoid clutter. Proper
+                margins (typically 1-inch on all sides) and spacing between
+                sections improve readability.
+              </li>
+              <li>
+                <strong>Section Headings:</strong> Bold and slightly larger text
+                can be used to emphasize section titles.
+              </li>
+              <li>
+                <strong>Bullet Points:</strong> Bullet points help organize
+                content and make your accomplishments easier to skim.
+              </li>
+              <li>
+                <strong>Length:</strong> Keep your resume concise. For most
+                professionals, one page is ideal.
+              </li>
+              <li>
+                <strong>Color:</strong> Stick with a clean, professional color
+                scheme.
+              </li>
+              <li>
+                <strong>File Format:</strong> PDF is the preferred file format
+                when submitting your resume electronically.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 31: Tailoring Your Resume for Specific Job Applications -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">
+            Tailoring Your Resume for Specific Job Applications
+          </h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Analyze the Job Description:</strong> Carefully read the
+                job posting and identify keywords, skills, and qualifications
+                mentioned.
+              </li>
+              <li>
+                <strong>Match Your Skills:</strong> Align your skills and
+                experiences with the requirements listed in the job description.
+              </li>
+              <li>
+                <strong>Highlight Relevant Experience:</strong> Tailor your
+                resume by emphasizing relevant experiences and downplaying less
+                relevant ones.
+              </li>
+              <li>
+                <strong>Job-Specific Achievements:</strong> Where possible,
+                quantify your accomplishments that are related to the job you're
+                applying for.
+              </li>
+              <li>
+                <strong>Use a Custom Summary or Objective:</strong> Customize it
+                to show that your career goals align with the position.
+              </li>
+              <li>
+                <strong>Adjust Section Placement:</strong> Depending on the job,
+                different sections may be more relevant.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 32: Common Resume Mistakes and How to Avoid Them -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">
+            Common Resume Mistakes and How to Avoid Them
+          </h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Typos and Grammatical Errors:</strong> Use spell-check
+                tools and ask someone else to review your resume.
+              </li>
+              <li>
+                <strong>Being Too Vague:</strong> Use specific language to
+                describe your accomplishments.
+              </li>
+              <li>
+                <strong>Lack of Quantified Achievements:</strong> Use numbers to
+                describe your achievements whenever possible.
+              </li>
+              <li>
+                <strong>Including Irrelevant Information:</strong> Focus on
+                relevant, recent experience and skills.
+              </li>
+              <li>
+                <strong>Unprofessional Formatting:</strong> Stick to clean,
+                professional formatting.
+              </li>
+              <li>
+                <strong>Using a Generic Resume:</strong> Always customize your
+                resume for the specific position.
+              </li>
+              <li>
+                <strong>Listing Duties Instead of Achievements:</strong> Focus
+                on what you accomplished in your role.
+              </li>
+              <li>
+                <strong>Not Updating Contact Information:</strong> Ensure your
+                contact details are up-to-date and professional.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33: Conclusion -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Conclusion</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Mastering job applications and resume writing is essential for
+              success in today's competitive job market. By understanding the
+              application process, tailoring your materials to each position,
+              and presenting yourself professionally, you can significantly
+              increase your chances of landing an interview.
+            </p>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Remember that your job application and resume are your first
+              opportunities to make a positive impression on potential
+              employers. Take the time to craft them carefully, proofread
+              thoroughly, and customize them for each position you apply for.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Job Application and Resume Writing Presentation</p>
+    </div>
+
+    <script>
+      // Navigation functionality
+      document.getElementById("topBtn").addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      document.getElementById("downBtn").addEventListener("click", function () {
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: "smooth",
+        });
+      });
+
+      // Progress bar functionality
+      window.addEventListener("scroll", function () {
+        const winScroll =
+          document.body.scrollTop || document.documentElement.scrollTop;
+        const height =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById("progressBar").style.width = scrolled + "%";
+      });
+
+      // Add fade-in animation to slides when they come into view
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".slide").forEach((slide) => {
+        slide.style.opacity = "0";
+        slide.style.transform = "translateY(20px)";
+        slide.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        observer.observe(slide);
+      });
+    </script>
+  </body>
+</html>
