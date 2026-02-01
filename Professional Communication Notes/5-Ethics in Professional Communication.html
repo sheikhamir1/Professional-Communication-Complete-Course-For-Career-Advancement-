@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ethics in Professional Communication</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #f5f7fa;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .presentation-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .slide {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        margin-bottom: 30px;
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .slide-header {
+        margin-bottom: 30px;
+        border-bottom: 2px solid #e1e8ed;
+        padding-bottom: 15px;
+      }
+
+      .slide-title {
+        font-family: "Montserrat", sans-serif;
+        font-size: 2.5rem;
+        color: #1a73e8;
+        margin-bottom: 10px;
+      }
+
+      .slide-subtitle {
+        font-size: 1.2rem;
+        color: #5f6368;
+      }
+
+      .slide-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .text-section {
+        margin-bottom: 20px;
+      }
+
+      .text-section h3 {
+        font-family: "Montserrat", sans-serif;
+        color: #1a73e8;
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+      }
+
+      .text-section p {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+
+      .image-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+      }
+
+      .image-container img {
+        max-width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .list-section {
+        margin-bottom: 20px;
+      }
+
+      .list-section ul {
+        padding-left: 25px;
+      }
+
+      .list-section li {
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+      }
+
+      .two-column {
+        display: flex;
+        gap: 30px;
+        margin-top: 20px;
+      }
+
+      .column {
+        flex: 1;
+      }
+
+      .highlight-box {
+        background-color: #e8f0fe;
+        border-left: 4px solid #1a73e8;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .navigation {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-btn {
+        background-color: #1a73e8;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .nav-btn:hover {
+        background-color: #0d47a1;
+        transform: scale(1.1);
+      }
+
+      .progress-indicator {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 5px;
+        background-color: #1a73e8;
+        z-index: 101;
+        transition: width 0.3s ease;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 20px;
+        color: #5f6368;
+        font-size: 0.9rem;
+      }
+
+      .info-card {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .info-card h4 {
+        color: #1a73e8;
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        border: 1px solid #e1e8ed;
+        padding: 12px;
+        text-align: left;
+      }
+
+      .comparison-table th {
+        background-color: #e8f0fe;
+        color: #1a73e8;
+      }
+
+      .comparison-table tr:nth-child(even) {
+        background-color: #f8f9fa;
+      }
+
+      .qa-pair {
+        margin-bottom: 25px;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+      }
+
+      .question {
+        font-weight: 500;
+        color: #1a73e8;
+        margin-bottom: 10px;
+      }
+
+      .answer {
+        padding-left: 20px;
+      }
+
+      .protocol-card {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+      }
+
+      .protocol-icon {
+        font-size: 2rem;
+        color: #1a73e8;
+        margin-right: 15px;
+        width: 60px;
+        text-align: center;
+      }
+
+      .protocol-info {
+        flex: 1;
+      }
+
+      .protocol-info h4 {
+        margin-bottom: 5px;
+        color: #1a73e8;
+      }
+
+      .frame-structure {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 20px 0;
+      }
+
+      .frame-field {
+        background-color: #e8f0fe;
+        border: 1px solid #1a73e8;
+        border-radius: 4px;
+        padding: 10px;
+        text-align: center;
+        flex-grow: 1;
+        min-width: 100px;
+      }
+
+      .frame-field.primary {
+        background-color: #1a73e8;
+        color: white;
+        font-weight: bold;
+      }
+
+      .process-flow {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+
+      .process-step {
+        background-color: #f8f9fa;
+        border: 1px solid #e1e8ed;
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+        width: 150px;
+      }
+
+      .process-arrow {
+        color: #1a73e8;
+        font-size: 1.5rem;
+        margin: 0 10px;
+      }
+
+      .bit-position {
+        display: flex;
+        align-items: center;
+        margin: 5px 0;
+      }
+
+      .bit-position-number {
+        width: 30px;
+        height: 30px;
+        background-color: #1a73e8;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+        font-weight: bold;
+      }
+
+      .bit-position-value {
+        background-color: #f8f9fa;
+        border: 1px solid #e1e8ed;
+        border-radius: 4px;
+        padding: 5px 10px;
+        min-width: 30px;
+        text-align: center;
+      }
+
+      .bit-position.parity {
+        background-color: #e8f0fe;
+      }
+
+      .bit-position.data {
+        background-color: #f8f9fa;
+      }
+
+      .byte-stuffing-example {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+
+      .byte {
+        background-color: #f8f9fa;
+        border: 1px solid #e1e8ed;
+        border-radius: 4px;
+        padding: 10px;
+        margin: 0 5px;
+        min-width: 40px;
+        text-align: center;
+      }
+
+      .byte.flag {
+        background-color: #1a73e8;
+        color: white;
+        font-weight: bold;
+      }
+
+      .byte.esc {
+        background-color: #f1c40f;
+        color: white;
+        font-weight: bold;
+      }
+
+      .byte.stuffed {
+        background-color: #e8f0fe;
+        border: 1px dashed #1a73e8;
+      }
+
+      .error-types {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+
+      .error-type {
+        text-align: center;
+        width: 200px;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .error-type img {
+        max-width: 100%;
+        height: 100px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+      }
+
+      .error-type h4 {
+        color: #1a73e8;
+        margin-bottom: 5px;
+      }
+
+      .exercise-card {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        border-left: 4px solid #1a73e8;
+      }
+
+      .exercise-card h4 {
+        color: #1a73e8;
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+      }
+
+      .exercise-task {
+        margin-bottom: 10px;
+        padding-left: 20px;
+        position: relative;
+      }
+
+      .exercise-task:before {
+        content: "•";
+        color: #1a73e8;
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+      }
+
+      @media (max-width: 768px) {
+        .slide {
+          padding: 20px;
+        }
+
+        .slide-title {
+          font-size: 1.8rem;
+        }
+
+        .two-column {
+          flex-direction: column;
+        }
+
+        .navigation {
+          bottom: 20px;
+          top: auto;
+          flex-direction: row;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="progress-indicator" id="progressBar"></div>
+
+    <div class="navigation">
+      <button class="nav-btn" id="topBtn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+      <button class="nav-btn" id="downBtn" title="Go to bottom">
+        <i class="fas fa-arrow-down"></i>
+      </button>
+    </div>
+
+    <div class="presentation-container">
+      <!-- Slide 1: Title Slide -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Ethics in Professional Communication</h1>
+          <p class="slide-subtitle">
+            Guiding Principles for Integrity and Trust
+          </p>
+        </div>
+        <div class="slide-content">
+          <div class="image-container">
+            <img
+              src="https://portfolium1.cloudimg.io/s/fit/764x400/https://cdn.portfolium.com/ugcs3%2Fv3%2Fproject_attachments%2FD823A32E-C4AB-4064-8BC8-1EC0C2346C97_Ethic-Communication-image-comm-670-capstone.jpg"
+              alt="Ethics in Professional Communication"
+            />
+          </div>
+          <div class="text-section">
+            <p>
+              Ethics play a crucial role in professional communication, guiding
+              how individuals interact, share information, and handle sensitive
+              issues. Adhering to ethical principles helps build trust, maintain
+              integrity, and foster a positive organizational culture.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Introduction to Ethics in Professional Communication -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">
+            Introduction to Ethics in Professional Communication
+          </h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Ethics in professional communication encompasses principles that
+              guide how information is shared and interactions are conducted.
+              These ethical considerations are essential for maintaining trust,
+              credibility, and positive relationships in professional settings.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>Honesty and transparency</li>
+              <li>Respect for confidentiality</li>
+              <li>Avoiding misrepresentation</li>
+              <li>Ethical use of media and information</li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Upholding ethical standards in communication is not just about
+              following rules—it's about building a culture of integrity that
+              benefits both individuals and organizations.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Honesty and Transparency - Overview -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Honesty and Transparency</h2>
+          <p class="slide-subtitle">Overview</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Honesty and transparency are foundational ethical principles in
+              professional communication. They involve providing accurate,
+              truthful information and being open about intentions and actions.
+              These principles are essential for building trust and credibility
+              in professional relationships.
+            </p>
+          </div>
+          <div class="info-card">
+            <h4>Why It Matters</h4>
+            <p>
+              Honest and transparent communication creates an environment of
+              trust where stakeholders feel confident in the information they
+              receive and the intentions behind it.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Key Aspects of Honesty and Transparency -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Key Aspects of Honesty and Transparency</h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Accurate Information:</strong> Ensure that all
+                information communicated is factual and accurate.
+                Misrepresenting facts or providing misleading information
+                undermines trust and can have serious consequences.
+              </li>
+              <li>
+                <strong>Open Disclosure:</strong> Be open about the intentions
+                behind communication and disclose any relevant information that
+                may affect decision-making. Transparency in motives and actions
+                helps prevent misunderstandings and fosters trust.
+              </li>
+              <li>
+                <strong>Accountability:</strong> Take responsibility for any
+                mistakes or inaccuracies in communication. Acknowledge errors
+                and correct them promptly to maintain credibility and trust.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Benefits and Challenges of Honesty and Transparency -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">
+            Benefits and Challenges of Honesty and Transparency
+          </h2>
+        </div>
+        <div class="slide-content">
+          <div class="two-column">
+            <div class="column">
+              <div class="info-card">
+                <h4>Benefits</h4>
+                <ul>
+                  <li>Builds trust</li>
+                  <li>Enhances credibility</li>
+                  <li>Prevents misunderstandings</li>
+                </ul>
+              </div>
+            </div>
+            <div class="column">
+              <div class="info-card">
+                <h4>Challenges</h4>
+                <ul>
+                  <li>Communicating sensitive information</li>
+                  <li>Balancing openness with confidentiality</li>
+                  <li>Addressing uncomfortable truths</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Striking a balance between openness and confidentiality can be
+              complex, especially when dealing with proprietary or sensitive
+              information.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Strategies for Promoting Honesty and Transparency -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">
+            Strategies for Promoting Honesty and Transparency
+          </h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Establish Clear Communication Practices:</strong>
+                Develop and adhere to communication practices that prioritize
+                accuracy and openness. Encourage honesty in all interactions.
+              </li>
+              <li>
+                <strong>Provide Training:</strong> Offer training on ethical
+                communication practices to ensure that all team members
+                understand the importance of honesty and transparency.
+              </li>
+              <li>
+                <strong>Encourage Feedback:</strong> Create an environment where
+                feedback is welcomed and acted upon. Address any concerns about
+                dishonesty or lack of transparency promptly.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Leadership plays a crucial role in modeling honest and transparent
+              communication. When leaders demonstrate these values, it sets the
+              tone for the entire organization.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Respect for Confidentiality - Overview -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Respect for Confidentiality</h2>
+          <p class="slide-subtitle">Overview</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Respecting confidentiality involves safeguarding sensitive
+              information and ensuring that it is only shared with authorized
+              individuals. Confidentiality is critical for protecting privacy
+              and maintaining trust in professional relationships.
+            </p>
+          </div>
+          <div class="info-card">
+            <h4>Why It Matters</h4>
+            <p>
+              In an era of data breaches and information leaks, maintaining
+              confidentiality is more important than ever. It protects both
+              individuals and organizations from potential harm.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Key Aspects of Confidentiality -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Key Aspects of Confidentiality</h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Data Protection:</strong> Implement measures to protect
+                confidential information from unauthorized access, loss, or
+                theft. This includes secure storage, encryption, and restricted
+                access controls.
+              </li>
+              <li>
+                <strong>Limited Disclosure:</strong> Share confidential
+                information only with individuals who have a legitimate need to
+                know. Avoid discussing sensitive information in public or
+                unsecured settings.
+              </li>
+              <li>
+                <strong>Respect for Privacy:</strong> Respect individuals'
+                privacy by handling personal or sensitive information with care.
+                Obtain consent before sharing or using such information.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9: Benefits and Challenges of Confidentiality -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">
+            Benefits and Challenges of Confidentiality
+          </h2>
+        </div>
+        <div class="slide-content">
+          <div class="two-column">
+            <div class="column">
+              <div class="info-card">
+                <h4>Benefits</h4>
+                <ul>
+                  <li>Protects privacy</li>
+                  <li>Enhances trust</li>
+                  <li>Ensures legal and ethical compliance</li>
+                </ul>
+              </div>
+            </div>
+            <div class="column">
+              <div class="info-card">
+                <h4>Challenges</h4>
+                <ul>
+                  <li>Information security</li>
+                  <li>Handling breaches</li>
+                  <li>Balancing transparency with confidentiality</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Ensuring the security of confidential information can be
+              challenging, especially with increasing digital communication and
+              data storage.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10: Strategies for Upholding Confidentiality -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Strategies for Upholding Confidentiality</h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Implement Security Measures:</strong> Use secure systems
+                and practices for handling confidential information, including
+                encryption, secure passwords, and access controls.
+              </li>
+              <li>
+                <strong>Establish Confidentiality Policies:</strong> Develop and
+                enforce policies related to confidentiality and data protection.
+                Provide training to ensure that all team members understand and
+                adhere to these policies.
+              </li>
+              <li>
+                <strong>Monitor and Audit:</strong> Regularly monitor and audit
+                data handling practices to identify and address potential
+                vulnerabilities or breaches.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: Avoiding Misrepresentation - Overview -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Avoiding Misrepresentation</h2>
+          <p class="slide-subtitle">Overview</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Avoiding misrepresentation involves ensuring that all
+              communication accurately reflects reality and does not distort
+              facts or intentions. Misrepresentation can lead to
+              misunderstandings, mistrust, and legal consequences.
+            </p>
+          </div>
+          <div class="info-card">
+            <h4>Why It Matters</h4>
+            <p>
+              Misrepresentation, whether intentional or unintentional, can
+              damage relationships and reputations. It undermines the very
+              foundation of trust that professional communication seeks to
+              build.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 12: Key Aspects of Avoiding Misrepresentation -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Key Aspects of Avoiding Misrepresentation</h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Truthful Representation:</strong> Represent information,
+                products, or services honestly and accurately. Avoid
+                exaggerating claims or presenting information in a misleading
+                way.
+              </li>
+              <li>
+                <strong>Clear Communication:</strong> Ensure that all
+                communication is clear and unambiguous. Avoid using vague or
+                misleading language that could be misinterpreted.
+              </li>
+              <li>
+                <strong>Ethical Advertising:</strong> When promoting products or
+                services, provide truthful and substantiated claims. Avoid
+                deceptive marketing practices or false advertising.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: Benefits and Challenges of Avoiding Misrepresentation -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">
+            Benefits and Challenges of Avoiding Misrepresentation
+          </h2>
+        </div>
+        <div class="slide-content">
+          <div class="two-column">
+            <div class="column">
+              <div class="info-card">
+                <h4>Benefits</h4>
+                <ul>
+                  <li>Builds trust</li>
+                  <li>Prevents legal issues</li>
+                  <li>Enhances reputation</li>
+                </ul>
+              </div>
+            </div>
+            <div class="column">
+              <div class="info-card">
+                <h4>Challenges</h4>
+                <ul>
+                  <li>Pressure to perform</li>
+                  <li>Communicating complex information</li>
+                  <li>Balancing marketing with accuracy</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Pressure to meet targets or goals can lead to temptations to
+              misrepresent information. Maintaining ethical standards despite
+              pressure requires strong principles and integrity.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 14: Strategies for Avoiding Misrepresentation -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Strategies for Avoiding Misrepresentation</h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Verify Information:</strong> Ensure that all information
+                communicated is accurate and substantiated. Fact-check claims
+                and consult reliable sources before sharing information.
+              </li>
+              <li>
+                <strong>Use Clear Language:</strong> Communicate using clear and
+                straightforward language to avoid ambiguity or
+                misinterpretation.
+              </li>
+              <li>
+                <strong>Promote Ethical Practices:</strong> Foster a culture of
+                integrity and ethics within the organization by setting clear
+                expectations and leading by example.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: Ethical Use of Media and Information - Overview -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Ethical Use of Media and Information</h2>
+          <p class="slide-subtitle">Overview</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              The ethical use of media and information involves responsibly
+              managing and disseminating information through various media
+              channels. This includes respecting intellectual property, avoiding
+              plagiarism, and using media in a manner that upholds ethical
+              standards.
+            </p>
+          </div>
+          <div class="info-card">
+            <h4>Why It Matters</h4>
+            <p>
+              In today's digital age, information spreads rapidly. Using media
+              and information ethically ensures that this spread of information
+              is responsible, accurate, and respectful of others' rights.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 16: Key Aspects of Ethical Use of Media and Information -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">
+            Key Aspects of Ethical Use of Media and Information
+          </h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Respect for Intellectual Property:</strong> Acknowledge
+                and respect intellectual property rights by obtaining proper
+                permissions and giving credit to original creators. Avoid using
+                copyrighted material without authorization.
+              </li>
+              <li>
+                <strong>Avoiding Plagiarism:</strong> Ensure that all content is
+                original or properly attributed to its source. Plagiarism
+                undermines credibility and violates ethical standards.
+              </li>
+              <li>
+                <strong>Responsible Media Usage:</strong> Use media channels
+                responsibly, avoiding sensationalism, misinformation, or
+                manipulation. Ensure that media content is accurate and does not
+                harm individuals or organizations.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 17: Benefits and Challenges of Ethical Media Use -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">
+            Benefits and Challenges of Ethical Media Use
+          </h2>
+        </div>
+        <div class="slide-content">
+          <div class="two-column">
+            <div class="column">
+              <div class="info-card">
+                <h4>Benefits</h4>
+                <ul>
+                  <li>Maintains integrity</li>
+                  <li>Fosters trust</li>
+                  <li>Complies with legal standards</li>
+                </ul>
+              </div>
+            </div>
+            <div class="column">
+              <div class="info-card">
+                <h4>Challenges</h4>
+                <ul>
+                  <li>Information overload</li>
+                  <li>Ethical dilemmas</li>
+                  <li>Rapid spread of misinformation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Managing and discerning accurate information amidst vast amounts
+              of media content can be challenging, requiring critical thinking
+              and verification skills.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Strategies for Ethical Use of Media and Information -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">
+            Strategies for Ethical Use of Media and Information
+          </h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Adhere to Copyright Laws:</strong> Follow copyright laws
+                and guidelines for using media and information. Obtain necessary
+                permissions and give proper attribution to original creators.
+              </li>
+              <li>
+                <strong>Promote Original Content:</strong> Encourage the
+                creation and sharing of original content. Use plagiarism
+                detection tools and provide training on ethical content creation
+                practices.
+              </li>
+              <li>
+                <strong>Implement Media Policies:</strong> Develop and enforce
+                policies related to media usage and information management.
+                Ensure that all team members are aware of and adhere to these
+                policies.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 19: Summary of Ethics in Professional Communication -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">
+            Summary: Ethics in Professional Communication
+          </h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Ethics in professional communication encompasses principles such
+              as honesty, transparency, confidentiality, avoiding
+              misrepresentation, and the ethical use of media and information.
+              Upholding these ethical standards is crucial for maintaining
+              trust, credibility, and positive relationships in professional
+              settings.
+            </p>
+          </div>
+          <div class="highlight-box">
+            <p>
+              By adhering to ethical practices and implementing strategies to
+              address ethical challenges, individuals and organizations can
+              foster a culture of integrity and professionalism.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 20: Let's Sum Up - Introduction -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Let's Sum Up</h2>
+          <p class="slide-subtitle">
+            Key Points from Professional Communication
+          </p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              In this unit on professional communication, we have explored
+              various fundamental aspects crucial for effective interaction in
+              professional settings. Here's a summary of the key points covered:
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>Definition and Scope of Professional Communication</li>
+              <li>Types of Professional Communication</li>
+              <li>Characteristics of Effective Professional Communication</li>
+              <li>Barriers to Effective Professional Communication</li>
+              <li>Strategies for Overcoming Communication Barriers</li>
+              <li>The Role of Communication in Professional Settings</li>
+              <li>Ethics in Professional Communication</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 21: Definition and Scope of Professional Communication -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">
+            Definition and Scope of Professional Communication
+          </h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Definition and Importance:</strong> Professional
+                communication involves the exchange of information in a clear,
+                concise, and effective manner. It is essential for achieving
+                organizational goals, fostering collaboration, and maintaining
+                professional relationships.
+              </li>
+              <li>
+                <strong>Forms and Channels:</strong> Professional communication
+                can take various forms, including written, verbal, non-verbal,
+                and digital communication. Each form has its unique
+                characteristics and is suitable for different contexts and
+                purposes.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 22: Types of Professional Communication -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Types of Professional Communication</h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Written Communication:</strong> Includes emails,
+                reports, memos, and documentation. It is essential for providing
+                a permanent record of information and ensuring clarity in
+                complex messages.
+              </li>
+              <li>
+                <strong>Verbal Communication:</strong> Involves face-to-face
+                conversations, phone calls, and meetings. It allows for
+                immediate feedback and clarification.
+              </li>
+              <li>
+                <strong>Non-verbal Communication:</strong> Encompasses body
+                language, facial expressions, and gestures. It plays a crucial
+                role in conveying emotions and reinforcing verbal messages.
+              </li>
+              <li>
+                <strong>Digital and Electronic Communication:</strong> Includes
+                communication via email, social media, and instant messaging. It
+                enables rapid exchange of information but requires careful
+                management to avoid misunderstandings.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Characteristics of Effective Professional Communication -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">
+            Characteristics of Effective Professional Communication
+          </h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Clarity and Precision:</strong> Ensuring that messages
+                are clear and specific to avoid misunderstandings.
+              </li>
+              <li>
+                <strong>Conciseness:</strong> Providing information in a brief
+                and to-the-point manner while covering all necessary details.
+              </li>
+              <li>
+                <strong>Tone and Formality:</strong> Adjusting the tone and
+                level of formality based on the audience and context to ensure
+                appropriateness and effectiveness.
+              </li>
+              <li>
+                <strong>Cultural Sensitivity:</strong> Being aware of and
+                respectful towards cultural differences in communication styles
+                and practices.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 24: Barriers to Effective Professional Communication -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">
+            Barriers to Effective Professional Communication
+          </h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Language Barriers:</strong> Issues arising from
+                differences in language proficiency, jargon, or technical terms.
+              </li>
+              <li>
+                <strong>Psychological Barriers:</strong> Factors such as stress,
+                emotional state, or preconceived notions that affect
+                communication.
+              </li>
+              <li>
+                <strong>Technological Barriers:</strong> Challenges related to
+                technology issues, such as connectivity problems or software
+                malfunctions.
+              </li>
+              <li>
+                <strong>Physical and Environmental Barriers:</strong> Factors
+                like noise, poor lighting, or uncomfortable settings that hinder
+                effective communication.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 25: Strategies for Overcoming Communication Barriers -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">
+            Strategies for Overcoming Communication Barriers
+          </h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Active Listening:</strong> Engaging fully with the
+                speaker, asking clarifying questions, and providing feedback.
+              </li>
+              <li>
+                <strong>Adapting to the Audience:</strong> Tailoring
+                communication to meet the needs and preferences of the audience.
+              </li>
+              <li>
+                <strong>Use of Technology:</strong> Leveraging technology to
+                enhance communication and address barriers.
+              </li>
+              <li>
+                <strong>Feedback and Continuous Improvement:</strong> Seeking
+                and providing feedback to improve communication practices
+                continuously.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 26: The Role of Communication in Professional Settings -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">
+            The Role of Communication in Professional Settings
+          </h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Teamwork and Collaboration:</strong> Effective
+                communication enhances coordination, cooperation, and conflict
+                resolution within teams.
+              </li>
+              <li>
+                <strong>Leadership and Management Communication:</strong> Clear
+                and motivational communication from leaders and managers guides,
+                engages, and supports employees.
+              </li>
+              <li>
+                <strong>Customer and Client Interactions:</strong> Honest,
+                clear, and responsive communication builds trust and
+                satisfaction in customer and client relationships.
+              </li>
+              <li>
+                <strong>Conflict Resolution:</strong> Constructive communication
+                helps in addressing and resolving conflicts, maintaining
+                positive relationships and productivity.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 27: Ethics in Professional Communication - Summary -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Ethics in Professional Communication</h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Honesty and Transparency:</strong> Providing accurate
+                and truthful information, being open about intentions, and
+                acknowledging mistakes.
+              </li>
+              <li>
+                <strong>Respect for Confidentiality:</strong> Protecting
+                sensitive information and sharing it only with authorized
+                individuals.
+              </li>
+              <li>
+                <strong>Avoiding Misrepresentation:</strong> Ensuring that all
+                communication accurately reflects reality and avoids misleading
+                or deceptive practices.
+              </li>
+              <li>
+                <strong>Ethical Use of Media and Information:</strong>
+                Respecting intellectual property, avoiding plagiarism, and using
+                media responsibly.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 28: Unit End Exercise - Introduction -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Unit End Exercise</h2>
+          <p class="slide-subtitle">
+            Applying Professional Communication Concepts
+          </p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Objective: To assess your understanding of the key concepts
+              covered in this unit on professional communication and to apply
+              these concepts to practical scenarios.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>Case Study Analysis</li>
+              <li>Role-Play Exercise</li>
+              <li>Ethical Dilemma Reflection</li>
+              <li>Self-Assessment</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 29: Case Study Analysis -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Case Study Analysis</h2>
+        </div>
+        <div class="slide-content">
+          <div class="exercise-card">
+            <h4>Scenario</h4>
+            <p>
+              You are a team leader who needs to address a recent drop in team
+              performance during a project. Team members have expressed concerns
+              about unclear instructions and lack of timely feedback.
+            </p>
+
+            <h4>Tasks</h4>
+            <div class="exercise-task">
+              Identify Communication Barriers: Analyze the potential
+              communication barriers affecting the team's performance.
+            </div>
+            <div class="exercise-task">
+              Propose Solutions: Develop a communication plan to address these
+              barriers and improve team performance.
+            </div>
+            <div class="exercise-task">
+              Describe Implementation: Outline how you would implement the
+              proposed solutions and measure their effectiveness.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 30: Role-Play Exercise -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Role-Play Exercise</h2>
+        </div>
+        <div class="slide-content">
+          <div class="exercise-card">
+            <h4>Scenario</h4>
+            <p>
+              You are preparing to have a performance review meeting with a team
+              member who has been underperforming. You need to provide
+              constructive feedback while maintaining a positive and motivating
+              tone.
+            </p>
+
+            <h4>Tasks</h4>
+            <div class="exercise-task">
+              Prepare Dialogue: Write a sample script for the meeting that
+              demonstrates clear, concise, and respectful communication.
+            </div>
+            <div class="exercise-task">
+              Identify Key Points: Highlight the key points you need to address
+              and the strategies you will use to ensure the message is received
+              positively.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 31: Ethical Dilemma Reflection -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Ethical Dilemma Reflection</h2>
+        </div>
+        <div class="slide-content">
+          <div class="exercise-card">
+            <h4>Scenario</h4>
+            <p>
+              You receive confidential information about an upcoming
+              organizational change that could impact your team's morale. You
+              are unsure about whether to share this information with your team
+              in advance or wait until it is officially announced.
+            </p>
+
+            <h4>Tasks</h4>
+            <div class="exercise-task">
+              Analyze the Situation: Consider the ethical implications of
+              sharing or withholding the information.
+            </div>
+            <div class="exercise-task">
+              Make a Decision: Write a brief reflection on your decision-making
+              process and the factors that influenced your choice.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 32: Self-Assessment -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Self-Assessment</h2>
+        </div>
+        <div class="slide-content">
+          <div class="exercise-card">
+            <h4>Tasks</h4>
+            <div class="exercise-task">
+              Reflect on your own communication practices in professional
+              settings. Identify areas where you excel and areas where you could
+              improve.
+            </div>
+            <div class="exercise-task">
+              Develop a personal action plan for enhancing your communication
+              skills based on the insights gained from this unit.
+            </div>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Self-assessment is a critical component of professional
+              development. Regular reflection on your communication practices
+              helps identify strengths and areas for improvement.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33: Conclusion -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Conclusion</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              By understanding and applying these principles and strategies,
+              professionals can enhance their communication effectiveness, build
+              stronger relationships, and contribute positively to their
+              organizational environment.
+            </p>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Effective professional communication is not just about
+              transmitting information—it's about creating understanding,
+              fostering relationships, and driving organizational success.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Ethics in Professional Communication Presentation</p>
+    </div>
+
+    <script>
+      // Navigation functionality
+      document.getElementById("topBtn").addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      document.getElementById("downBtn").addEventListener("click", function () {
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: "smooth",
+        });
+      });
+
+      // Progress bar functionality
+      window.addEventListener("scroll", function () {
+        const winScroll =
+          document.body.scrollTop || document.documentElement.scrollTop;
+        const height =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById("progressBar").style.width = scrolled + "%";
+      });
+
+      // Add fade-in animation to slides when they come into view
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".slide").forEach((slide) => {
+        slide.style.opacity = "0";
+        slide.style.transform = "translateY(20px)";
+        slide.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        observer.observe(slide);
+      });
+    </script>
+  </body>
+</html>

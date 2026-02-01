@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professional Communication</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #f5f7fa;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .presentation-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .slide {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        margin-bottom: 30px;
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .slide-header {
+        margin-bottom: 30px;
+        border-bottom: 2px solid #e1e8ed;
+        padding-bottom: 15px;
+      }
+
+      .slide-title {
+        font-family: "Montserrat", sans-serif;
+        font-size: 2.5rem;
+        color: #1a73e8;
+        margin-bottom: 10px;
+      }
+
+      .slide-subtitle {
+        font-size: 1.2rem;
+        color: #5f6368;
+      }
+
+      .slide-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .text-section {
+        margin-bottom: 20px;
+      }
+
+      .text-section h3 {
+        font-family: "Montserrat", sans-serif;
+        color: #1a73e8;
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+      }
+
+      .text-section p {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+
+      .image-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+      }
+
+      .image-container img {
+        max-width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .list-section {
+        margin-bottom: 20px;
+      }
+
+      .list-section ul {
+        padding-left: 25px;
+      }
+
+      .list-section li {
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+      }
+
+      .two-column {
+        display: flex;
+        gap: 30px;
+        margin-top: 20px;
+      }
+
+      .column {
+        flex: 1;
+      }
+
+      .highlight-box {
+        background-color: #e8f0fe;
+        border-left: 4px solid #1a73e8;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .navigation {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-btn {
+        background-color: #1a73e8;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .nav-btn:hover {
+        background-color: #0d47a1;
+        transform: scale(1.1);
+      }
+
+      .progress-indicator {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 5px;
+        background-color: #1a73e8;
+        z-index: 101;
+        transition: width 0.3s ease;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 20px;
+        color: #5f6368;
+        font-size: 0.9rem;
+      }
+
+      .info-card {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .info-card h4 {
+        color: #1a73e8;
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        border: 1px solid #e1e8ed;
+        padding: 12px;
+        text-align: left;
+      }
+
+      .comparison-table th {
+        background-color: #e8f0fe;
+        color: #1a73e8;
+      }
+
+      .comparison-table tr:nth-child(even) {
+        background-color: #f8f9fa;
+      }
+
+      .communication-type {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+      }
+
+      .type-icon {
+        font-size: 1.5rem;
+        color: #1a73e8;
+        margin-right: 15px;
+        width: 40px;
+        text-align: center;
+        flex-shrink: 0;
+      }
+
+      .type-content {
+        flex: 1;
+      }
+
+      .type-content h4 {
+        margin-bottom: 10px;
+        color: #1a73e8;
+      }
+
+      .channel-type {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+      }
+
+      .channel-icon {
+        font-size: 1.5rem;
+        color: #1a73e8;
+        margin-right: 15px;
+        width: 40px;
+        text-align: center;
+        flex-shrink: 0;
+      }
+
+      .channel-content {
+        flex: 1;
+      }
+
+      .channel-content h4 {
+        margin-bottom: 10px;
+        color: #1a73e8;
+      }
+
+      .benefit-card {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 15px;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+      }
+
+      .benefit-icon {
+        font-size: 1.5rem;
+        color: #1a73e8;
+        margin-right: 15px;
+        width: 40px;
+        text-align: center;
+        flex-shrink: 0;
+      }
+
+      .benefit-content {
+        flex: 1;
+      }
+
+      .benefit-content h4 {
+        margin-bottom: 5px;
+        color: #1a73e8;
+      }
+
+      .step-flow {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin: 20px 0;
+      }
+
+      .step {
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .step-number {
+        background-color: #1a73e8;
+        color: white;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-right: 15px;
+        flex-shrink: 0;
+      }
+
+      .step-content {
+        flex: 1;
+      }
+
+      @media (max-width: 768px) {
+        .slide {
+          padding: 20px;
+        }
+
+        .slide-title {
+          font-size: 1.8rem;
+        }
+
+        .two-column {
+          flex-direction: column;
+        }
+
+        .navigation {
+          bottom: 20px;
+          top: auto;
+          flex-direction: row;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="progress-indicator" id="progressBar"></div>
+
+    <div class="navigation">
+      <button class="nav-btn" id="topBtn" title="Go to top">↑</button>
+      <button class="nav-btn" id="downBtn" title="Go to bottom">↓</button>
+    </div>
+
+    <div class="presentation-container">
+      <!-- Slide 1: Title Slide -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">
+            Definition and Scope of Professional Communication
+          </h1>
+          <p class="slide-subtitle">
+            Effective Interaction in Professional Settings
+          </p>
+        </div>
+        <div class="slide-content">
+          <div class="image-container">
+            <img
+              src="https://www.eseibusinessschool.com/wp-content/uploads/2023/04/pexels-fauxels-3184339-scaled.jpg"
+              alt="Professional Communication"
+            />
+          </div>
+          <div class="text-section">
+            <p>
+              Professional communication is a critical aspect of the modern
+              workplace, serving as the backbone of effective interaction and
+              collaboration in various professional settings. Understanding its
+              definition, scope, and significance can help individuals navigate
+              their roles more efficiently and contribute positively to their
+              organizations.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: What is Professional Communication? -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">What is Professional Communication?</h1>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Professional communication is defined as the exchange of
+              information, ideas, and messages in a professional environment. It
+              encompasses a range of methods and practices designed to
+              facilitate clear, effective, and purposeful interactions among
+              individuals within an organization.
+            </p>
+          </div>
+
+          <div class="highlight-box">
+            <p>
+              This form of communication is distinct from casual or personal
+              communication due to its focus on formality, clarity, and
+              adherence to organizational norms and protocols.
+            </p>
+          </div>
+
+          <div class="text-section">
+            <h3>Key Components of Professional Communication:</h3>
+            <ul>
+              <li>
+                <strong>Written Communication:</strong> Creation and exchange of
+                written documents (emails, reports, memos, official documents)
+              </li>
+              <li>
+                <strong>Verbal Communication:</strong> Spoken interactions
+                (face-to-face meetings, presentations, phone conversations)
+              </li>
+              <li>
+                <strong>Non-Verbal Communication:</strong> Communication without
+                spoken or written words (body language, eye contact, tone of
+                voice)
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Written Communication -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Written Communication</h1>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Written communication involves the creation and exchange of
+              written documents. Common forms include:
+            </p>
+          </div>
+
+          <div class="communication-type">
+            <div class="type-icon">📧</div>
+            <div class="type-content">
+              <h4>Emails</h4>
+              <p>
+                One of the most common forms of written communication in the
+                workplace. Emails are used for both internal and external
+                communication. They allow for detailed messages, attachments,
+                and formal language, and provide a written record of
+                correspondence.
+              </p>
+              <p>
+                <strong>Best Practices:</strong> Be clear, concise, and
+                professional. Use appropriate subject lines, salutations, and
+                signatures. Proofread for grammar and clarity.
+              </p>
+            </div>
+          </div>
+
+          <div class="communication-type">
+            <div class="type-icon">📊</div>
+            <div class="type-content">
+              <h4>Reports</h4>
+              <p>
+                Detailed documents that present information, analysis, and
+                recommendations. They are often used for decision-making and
+                record-keeping, requiring a structured format including sections
+                such as introduction, methodology, findings, and conclusions.
+              </p>
+              <p>
+                <strong>Best Practices:</strong> Ensure clarity, objectivity,
+                and thoroughness. Use headings, bullet points, and visuals to
+                enhance readability.
+              </p>
+            </div>
+          </div>
+
+          <div class="communication-type">
+            <div class="type-icon">📝</div>
+            <div class="type-content">
+              <h4>Memos</h4>
+              <p>
+                Short, internal messages used to communicate quickly within an
+                organization. They are typically brief and focused on specific
+                issues or announcements, less formal than reports but still
+                professional.
+              </p>
+              <p>
+                <strong>Best Practices:</strong> Be concise and to the point.
+                Include a clear subject line and purpose. Use a formal tone when
+                necessary.
+              </p>
+            </div>
+          </div>
+
+          <div class="communication-type">
+            <div class="type-icon">📋</div>
+            <div class="type-content">
+              <h4>Official Documents</h4>
+              <p>
+                Includes contracts, proposals, policies, and manuals that
+                outline formal agreements, guidelines, and procedures. They have
+                legal and procedural significance requiring precise and formal
+                language.
+              </p>
+              <p>
+                <strong>Best Practices:</strong> Ensure accuracy and adherence
+                to legal standards. Use formal language and clear formatting.
+              </p>
+            </div>
+          </div>
+
+          <div class="highlight-box">
+            <p>
+              Written communication allows for documentation and reference,
+              providing a permanent record of interactions and decisions.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Verbal Communication -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Verbal Communication</h1>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Verbal communication involves spoken interactions and can occur in
+              various settings:
+            </p>
+          </div>
+
+          <div class="communication-type">
+            <div class="type-icon">👥</div>
+            <div class="type-content">
+              <h4>Face-to-Face Meetings</h4>
+              <p>
+                Direct, personal interactions that allow for immediate feedback
+                and non-verbal cues. They enable detailed discussions,
+                relationship-building, and real-time problem-solving.
+              </p>
+              <p>
+                <strong>Best Practices:</strong> Prepare agendas, listen
+                actively, and engage in clear and respectful dialogue. Manage
+                time effectively during meetings.
+              </p>
+            </div>
+          </div>
+
+          <div class="communication-type">
+            <div class="type-icon">🎤</div>
+            <div class="type-content">
+              <h4>Presentations</h4>
+              <p>
+                Structured talks or speeches designed to inform, persuade, or
+                entertain an audience. They use visual aids, such as slides, to
+                support spoken content and require effective public speaking
+                skills.
+              </p>
+              <p>
+                <strong>Best Practices:</strong> Know your audience, use clear
+                and engaging visuals, and practice delivery. Be prepared for
+                questions and feedback.
+              </p>
+            </div>
+          </div>
+
+          <div class="communication-type">
+            <div class="type-icon">📞</div>
+            <div class="type-content">
+              <h4>Phone Conversations</h4>
+              <p>
+                Verbal interactions conducted over the phone, often used for
+                quick discussions or remote communication. They allow for
+                immediate exchange of information but lack visual cues.
+              </p>
+              <p>
+                <strong>Best Practices:</strong> Be clear and concise. Confirm
+                understanding and follow up with written confirmation if needed.
+              </p>
+            </div>
+          </div>
+
+          <div class="highlight-box">
+            <p>
+              Verbal communication enables dynamic exchanges and the immediate
+              resolution of issues, fostering collaboration and understanding.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Non-Verbal Communication -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Non-Verbal Communication</h1>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Non-verbal communication encompasses all forms of communication
+              that do not involve spoken or written words:
+            </p>
+          </div>
+
+          <div class="communication-type">
+            <div class="type-icon">🙋</div>
+            <div class="type-content">
+              <h4>Body Language</h4>
+              <p>
+                Includes gestures, posture, and facial expressions that convey
+                messages without spoken words. It enhances or contradicts verbal
+                communication and can express emotions, attitudes, and
+                engagement levels.
+              </p>
+              <p>
+                <strong>Best Practices:</strong> Be mindful of your own body
+                language and interpret others' non-verbal cues accurately.
+                Maintain open and positive gestures.
+              </p>
+            </div>
+          </div>
+
+          <div class="communication-type">
+            <div class="type-icon">👁️</div>
+            <div class="type-content">
+              <h4>Eye Contact</h4>
+              <p>
+                The act of looking directly at another person during
+                communication. It establishes trust, shows attentiveness, and
+                can convey confidence and sincerity.
+              </p>
+              <p>
+                <strong>Best Practices:</strong> Maintain appropriate eye
+                contact to demonstrate engagement and respect. Avoid staring or
+                appearing disinterested.
+              </p>
+            </div>
+          </div>
+
+          <div class="communication-type">
+            <div class="type-icon">🗣️</div>
+            <div class="type-content">
+              <h4>Tone of Voice</h4>
+              <p>
+                The vocal quality, pitch, and volume used during verbal
+                communication. It affects how messages are perceived and can
+                convey emotions such as enthusiasm, frustration, or empathy.
+              </p>
+              <p>
+                <strong>Best Practices:</strong> Use a tone that matches the
+                message and context. Be aware of how your tone may be
+                interpreted by others.
+              </p>
+            </div>
+          </div>
+
+          <div class="highlight-box">
+            <p>
+              Non-verbal cues often complement verbal communication, adding
+              depth to interactions and helping to convey sincerity and
+              confidence.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Purpose of Professional Communication -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Purpose of Professional Communication</h1>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              The primary purpose of professional communication is to ensure
+              that information is conveyed clearly and effectively, enabling
+              individuals and teams to achieve their goals and fulfill their
+              roles within the organization.
+            </p>
+          </div>
+
+          <div class="step-flow">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Facilitate Understanding</h4>
+                <p>
+                  By presenting information in a clear and organized manner,
+                  professional communication helps avoid misunderstandings and
+                  ensures that messages are accurately interpreted.
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Support Collaboration</h4>
+                <p>
+                  Effective communication fosters teamwork and cooperation,
+                  allowing individuals to share ideas, provide feedback, and
+                  work towards common objectives.
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Enhance Decision-Making</h4>
+                <p>
+                  Clear and timely communication provides the necessary
+                  information for making informed decisions, which is crucial
+                  for problem-solving and strategic planning.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Importance in the Workplace (Part 1) -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Importance in the Workplace (Part 1)</h1>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              The significance of professional communication in the workplace
+              cannot be overstated. It plays a vital role in various aspects of
+              organizational functioning and individual performance.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">⚡</div>
+            <div class="benefit-content">
+              <h4>1. Enhances Efficiency</h4>
+              <p>
+                Professional communication contributes to the efficiency of
+                organizational processes by streamlining information exchange
+                and reducing the likelihood of errors. Clear instructions and
+                well-documented communication help ensure that tasks are
+                completed correctly and on time.
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">🤝</div>
+            <div class="benefit-content">
+              <h4>2. Builds Relationships</h4>
+              <p>
+                Strong communication skills are essential for building and
+                maintaining positive relationships within the workplace. By
+                engaging in respectful, transparent, and empathetic
+                communication, individuals can foster trust and rapport with
+                colleagues, supervisors, and clients.
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">👔</div>
+            <div class="benefit-content">
+              <h4>3. Promotes Professionalism</h4>
+              <p>
+                Adhering to professional communication standards reflects
+                positively on both individuals and organizations. It
+                demonstrates respect, competence, and reliability, contributing
+                to a positive organizational image.
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">🔧</div>
+            <div class="benefit-content">
+              <h4>4. Supports Problem-Solving</h4>
+              <p>
+                Effective communication is crucial for identifying and
+                addressing issues within the workplace. When problems arise,
+                clear and open communication allows individuals to articulate
+                concerns, propose solutions, and collaborate on finding
+                effective resolutions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Importance in the Workplace (Part 2) -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Importance in the Workplace (Part 2)</h1>
+        </div>
+        <div class="slide-content">
+          <div class="benefit-card">
+            <div class="benefit-icon">👥</div>
+            <div class="benefit-content">
+              <h4>5. Facilitates Leadership</h4>
+              <p>
+                Leaders rely heavily on effective communication to guide their
+                teams, delegate tasks, and inspire motivation. By clearly
+                articulating goals, expectations, and feedback, leaders can
+                influence their teams' performance and drive organizational
+                success.
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">🏢</div>
+            <div class="benefit-content">
+              <h4>6. Impacts Organizational Culture</h4>
+              <p>
+                The way communication is conducted within an organization
+                significantly influences its culture. Positive communication
+                practices contribute to a healthy and supportive work
+                environment, where employees feel valued and engaged.
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">🔄</div>
+            <div class="benefit-content">
+              <h4>7. Enhances Adaptability</h4>
+              <p>
+                In today's fast-paced and ever-changing work environments, the
+                ability to adapt communication styles to different situations
+                and audiences is essential. Effective communicators can adjust
+                their approach based on the context and needs of their audience.
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">💡</div>
+            <div class="benefit-content">
+              <h4>8. Drives Innovation</h4>
+              <p>
+                Innovation often stems from the exchange of ideas and
+                collaborative efforts. Professional communication facilitates
+                brainstorming, knowledge sharing, and creative problem-solving,
+                helping organizations achieve competitive advantages.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9: More Importance in the Workplace -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">More Importance in the Workplace</h1>
+        </div>
+        <div class="slide-content">
+          <div class="benefit-card">
+            <div class="benefit-icon">📋</div>
+            <div class="benefit-content">
+              <h4>9. Ensures Compliance</h4>
+              <p>
+                In many industries, adherence to regulatory requirements and
+                standards is critical. Professional communication plays a role
+                in ensuring that employees are informed about policies,
+                procedures, and legal obligations.
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">📈</div>
+            <div class="benefit-content">
+              <h4>10. Supports Career Development</h4>
+              <p>
+                Strong communication skills are highly valued in the
+                professional world and are often linked to career advancement.
+                Individuals who excel in communication are more likely to be
+                recognized for their contributions and achieve career growth.
+              </p>
+            </div>
+          </div>
+
+          <div class="highlight-box">
+            <p>
+              Professional communication is a multifaceted and essential
+              component of effective workplace functioning. Understanding and
+              mastering professional communication skills are crucial for
+              success in any professional setting, contributing to both
+              individual and organizational achievements.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10: Forms of Communication -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Forms and Channels of Communication</h1>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              In the realm of professional communication, understanding the
+              various forms and channels through which information is exchanged
+              is crucial for effective interaction and collaboration. Each form
+              and channel serves different purposes and is suited to specific
+              types of communication.
+            </p>
+          </div>
+
+          <div class="text-section">
+            <h3>Forms of Communication</h3>
+          </div>
+
+          <div class="communication-type">
+            <div class="type-icon">✍️</div>
+            <div class="type-content">
+              <h4>Written Communication</h4>
+              <p>
+                Includes emails, reports, memos, and official documents that
+                provide a permanent record of interactions and decisions.
+              </p>
+            </div>
+          </div>
+
+          <div class="communication-type">
+            <div class="type-icon">🗣️</div>
+            <div class="type-content">
+              <h4>Verbal Communication</h4>
+              <p>
+                Includes face-to-face meetings, presentations, and phone
+                conversations that enable dynamic exchanges and immediate
+                feedback.
+              </p>
+            </div>
+          </div>
+
+          <div class="communication-type">
+            <div class="type-icon">🙋</div>
+            <div class="type-content">
+              <h4>Non-Verbal Communication</h4>
+              <p>
+                Includes body language, eye contact, and tone of voice that
+                complement verbal communication and convey emotions and
+                attitudes.
+              </p>
+            </div>
+          </div>
+
+          <div class="highlight-box">
+            <p>
+              Understanding the various forms of communication is essential for
+              effective interaction in the professional environment. Each form
+              serves different purposes and requires distinct approaches to
+              ensure clarity and effectiveness.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: Channels of Communication -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Channels of Communication</h1>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Channels of Communication</h3>
+          </div>
+
+          <div class="channel-type">
+            <div class="channel-icon">🏢</div>
+            <div class="channel-content">
+              <h4>1. Formal Channels</h4>
+              <p>
+                Structured pathways for communication that follow established
+                protocols and hierarchies. Examples include organizational
+                hierarchy, official meetings, and company intranet.
+              </p>
+              <p>
+                <strong>Best Practices:</strong> Adhere to established
+                procedures and protocols. Ensure information is accurate and
+                communicated through appropriate channels.
+              </p>
+            </div>
+          </div>
+
+          <div class="channel-type">
+            <div class="channel-icon">💬</div>
+            <div class="channel-content">
+              <h4>2. Informal Channels</h4>
+              <p>
+                Unofficial pathways for communication that often arise
+                spontaneously and are less structured. Examples include casual
+                conversations, social media platforms, and the grapevine.
+              </p>
+              <p>
+                <strong>Best Practices:</strong> Use informal channels for
+                casual interactions and quick updates, but ensure important or
+                sensitive information is communicated through formal channels.
+              </p>
+            </div>
+          </div>
+
+          <div class="channel-type">
+            <div class="channel-icon">💻</div>
+            <div class="channel-content">
+              <h4>3. Digital Channels</h4>
+              <p>
+                Electronic methods of communication facilitated by technology.
+                Examples include email, instant messaging, and video
+                conferencing platforms.
+              </p>
+              <p>
+                <strong>Best Practices:</strong> Use appropriate tools for the
+                context and audience. Ensure technology is used effectively and
+                securely.
+              </p>
+            </div>
+          </div>
+
+          <div class="channel-type">
+            <div class="channel-icon">📄</div>
+            <div class="channel-content">
+              <h4>4. Written Channels</h4>
+              <p>
+                Communication methods that involve physical or digital
+                documents. Examples include reports, memos, notices, and
+                bulletins.
+              </p>
+              <p>
+                <strong>Best Practices:</strong> Ensure clarity, accuracy, and
+                professionalism in written communication. Use proper formatting
+                and proofreading.
+              </p>
+            </div>
+          </div>
+
+          <div class="highlight-box">
+            <p>
+              Recognizing and utilizing the appropriate channels can enhance
+              communication efficiency and foster better organizational
+              interactions.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 12: Conclusion -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Conclusion</h1>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Professional communication is a critical aspect of the modern
+              workplace, serving as the backbone of effective interaction and
+              collaboration in various professional settings.
+            </p>
+          </div>
+
+          <div class="text-section">
+            <p>
+              It encompasses various forms (written, verbal, and non-verbal) and
+              channels (formal, informal, digital, and written) that serve
+              different purposes and require distinct approaches to ensure
+              clarity and effectiveness.
+            </p>
+          </div>
+
+          <div class="text-section">
+            <p>
+              The importance of professional communication extends to enhancing
+              efficiency, building relationships, promoting professionalism,
+              supporting problem-solving, facilitating leadership, impacting
+              organizational culture, enhancing adaptability, driving
+              innovation, ensuring compliance, and supporting career
+              development.
+            </p>
+          </div>
+
+          <div class="highlight-box">
+            <p>
+              Understanding and mastering professional communication skills are
+              crucial for success in any professional setting, contributing to
+              both individual and organizational achievements.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      Definition and Scope of Professional Communication - Professional
+      Presentation
+    </div>
+
+    <script>
+      // Navigation functionality
+      document.getElementById("topBtn").addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      document.getElementById("downBtn").addEventListener("click", function () {
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: "smooth",
+        });
+      });
+
+      // Progress bar functionality
+      window.addEventListener("scroll", function () {
+        const winScroll =
+          document.body.scrollTop || document.documentElement.scrollTop;
+        const height =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById("progressBar").style.width = scrolled + "%";
+      });
+
+      // Add fade-in animation to slides when they come into view
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".slide").forEach((slide) => {
+        slide.style.opacity = "0";
+        slide.style.transform = "translateY(20px)";
+        slide.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        observer.observe(slide);
+      });
+    </script>
+  </body>
+</html>
