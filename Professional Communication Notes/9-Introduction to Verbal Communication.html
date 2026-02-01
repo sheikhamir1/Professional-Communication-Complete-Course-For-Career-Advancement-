@@ -1,0 +1,1757 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction to Verbal Communication</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #f5f7fa;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .presentation-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .slide {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        margin-bottom: 30px;
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .slide-header {
+        margin-bottom: 30px;
+        border-bottom: 2px solid #e1e8ed;
+        padding-bottom: 15px;
+      }
+
+      .slide-title {
+        font-family: "Montserrat", sans-serif;
+        font-size: 2.5rem;
+        color: #1a73e8;
+        margin-bottom: 10px;
+      }
+
+      .slide-subtitle {
+        font-size: 1.2rem;
+        color: #5f6368;
+      }
+
+      .slide-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .text-section {
+        margin-bottom: 20px;
+      }
+
+      .text-section h3 {
+        font-family: "Montserrat", sans-serif;
+        color: #1a73e8;
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+      }
+
+      .text-section p {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+
+      .image-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+      }
+
+      .image-container img {
+        max-width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .list-section {
+        margin-bottom: 20px;
+      }
+
+      .list-section ul {
+        padding-left: 25px;
+      }
+
+      .list-section li {
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+      }
+
+      .two-column {
+        display: flex;
+        gap: 30px;
+        margin-top: 20px;
+      }
+
+      .column {
+        flex: 1;
+      }
+
+      .highlight-box {
+        background-color: #e8f0fe;
+        border-left: 4px solid #1a73e8;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .navigation {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-btn {
+        background-color: #1a73e8;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .nav-btn:hover {
+        background-color: #0d47a1;
+        transform: scale(1.1);
+      }
+
+      .progress-indicator {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 5px;
+        background-color: #1a73e8;
+        z-index: 101;
+        transition: width 0.3s ease;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 20px;
+        color: #5f6368;
+        font-size: 0.9rem;
+      }
+
+      .info-card {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .info-card h4 {
+        color: #1a73e8;
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        border: 1px solid #e1e8ed;
+        padding: 12px;
+        text-align: left;
+      }
+
+      .comparison-table th {
+        background-color: #e8f0fe;
+        color: #1a73e8;
+      }
+
+      .comparison-table tr:nth-child(even) {
+        background-color: #f8f9fa;
+      }
+
+      .qa-pair {
+        margin-bottom: 25px;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+      }
+
+      .question {
+        font-weight: 500;
+        color: #1a73e8;
+        margin-bottom: 10px;
+      }
+
+      .answer {
+        padding-left: 20px;
+      }
+
+      .protocol-card {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+      }
+
+      .protocol-icon {
+        font-size: 2rem;
+        color: #1a73e8;
+        margin-right: 15px;
+        width: 60px;
+        text-align: center;
+      }
+
+      .protocol-info {
+        flex: 1;
+      }
+
+      .protocol-info h4 {
+        margin-bottom: 5px;
+        color: #1a73e8;
+      }
+
+      .frame-structure {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 20px 0;
+      }
+
+      .frame-field {
+        background-color: #e8f0fe;
+        border: 1px solid #1a73e8;
+        border-radius: 4px;
+        padding: 10px;
+        text-align: center;
+        flex-grow: 1;
+        min-width: 100px;
+      }
+
+      .frame-field.primary {
+        background-color: #1a73e8;
+        color: white;
+        font-weight: bold;
+      }
+
+      .process-flow {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+
+      .process-step {
+        background-color: #f8f9fa;
+        border: 1px solid #e1e8ed;
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+        width: 150px;
+      }
+
+      .process-arrow {
+        color: #1a73e8;
+        font-size: 1.5rem;
+        margin: 0 10px;
+      }
+
+      .bit-position {
+        display: flex;
+        align-items: center;
+        margin: 5px 0;
+      }
+
+      .bit-position-number {
+        width: 30px;
+        height: 30px;
+        background-color: #1a73e8;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+        font-weight: bold;
+      }
+
+      .bit-position-value {
+        background-color: #f8f9fa;
+        border: 1px solid #e1e8ed;
+        border-radius: 4px;
+        padding: 5px 10px;
+        min-width: 30px;
+        text-align: center;
+      }
+
+      .bit-position.parity {
+        background-color: #e8f0fe;
+      }
+
+      .bit-position.data {
+        background-color: #f8f9fa;
+      }
+
+      .byte-stuffing-example {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+
+      .byte {
+        background-color: #f8f9fa;
+        border: 1px solid #e1e8ed;
+        border-radius: 4px;
+        padding: 10px;
+        margin: 0 5px;
+        min-width: 40px;
+        text-align: center;
+      }
+
+      .byte.flag {
+        background-color: #1a73e8;
+        color: white;
+        font-weight: bold;
+      }
+
+      .byte.esc {
+        background-color: #f1c40f;
+        color: white;
+        font-weight: bold;
+      }
+
+      .byte.stuffed {
+        background-color: #e8f0fe;
+        border: 1px dashed #1a73e8;
+      }
+
+      .error-types {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+
+      .error-type {
+        text-align: center;
+        width: 200px;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .error-type img {
+        max-width: 100%;
+        height: 100px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+      }
+
+      .error-type h4 {
+        color: #1a73e8;
+        margin-bottom: 5px;
+      }
+
+      .exercise-card {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        border-left: 4px solid #1a73e8;
+      }
+
+      .exercise-card h4 {
+        color: #1a73e8;
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+      }
+
+      .exercise-task {
+        margin-bottom: 10px;
+        padding-left: 20px;
+        position: relative;
+      }
+
+      .exercise-task:before {
+        content: "•";
+        color: #1a73e8;
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+      }
+
+      @media (max-width: 768px) {
+        .slide {
+          padding: 20px;
+        }
+
+        .slide-title {
+          font-size: 1.8rem;
+        }
+
+        .two-column {
+          flex-direction: column;
+        }
+
+        .navigation {
+          bottom: 20px;
+          top: auto;
+          flex-direction: row;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="progress-indicator" id="progressBar"></div>
+
+    <div class="navigation">
+      <button class="nav-btn" id="topBtn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+      <button class="nav-btn" id="downBtn" title="Go to bottom">
+        <i class="fas fa-arrow-down"></i>
+      </button>
+    </div>
+
+    <div class="presentation-container">
+      <!-- Slide 1: Title Slide -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Introduction to Verbal Communication</h1>
+          <p class="slide-subtitle">
+            Mastering the Art of Spoken Interaction in Professional Settings
+          </p>
+        </div>
+        <div class="slide-content">
+          <div class="image-container">
+            <img
+              src="https://www.workitdaily.com/media-library/verbal-communication-skills-concept.jpg?id=35604350&width=1200&height=800&quality=50&coordinates=0%2C0%2C0%2C0"
+              alt="Verbal Communication"
+            />
+          </div>
+          <div class="text-section">
+            <p>
+              Verbal communication is a fundamental aspect of human interaction,
+              enabling individuals to convey ideas, emotions, thoughts, and
+              instructions through spoken language. It is essential in personal,
+              social, and professional settings, providing the means by which
+              people engage with one another and build relationships.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Definition of Verbal Communication -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Definition of Verbal Communication</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              At its core, verbal communication refers to the process of using
+              words, either spoken or written, to share information with others.
+              In a professional context, verbal communication often refers to
+              spoken communication during meetings, presentations, one-on-one
+              conversations, phone calls, and even video conferences.
+            </p>
+          </div>
+          <div class="info-card">
+            <h4>Three Key Components of Verbal Communication</h4>
+            <ul>
+              <li>
+                <strong>Language:</strong> The system of symbols (words) used to
+                communicate.
+              </li>
+              <li>
+                <strong>Speech:</strong> The physical act of producing sound to
+                articulate words.
+              </li>
+              <li>
+                <strong>Listening:</strong> The ability to understand and
+                interpret the verbal messages of others.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Verbal communication plays a vital role in creating and
+              maintaining relationships, expressing emotions, and sharing
+              information. It is the most direct way to engage with others,
+              making it indispensable in professional settings where clarity,
+              precision, and efficiency are paramount.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Importance of Verbal Communication - Part 1 -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">
+            Importance of Verbal Communication in Professional Settings
+          </h2>
+          <p class="slide-subtitle">Part 1</p>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Facilitating Effective Collaboration:</strong> In
+                professional environments, teamwork and collaboration are
+                essential. Verbal communication allows for the exchange of
+                ideas, feedback, and solutions.
+              </li>
+              <li>
+                <strong>Building Relationships:</strong> Strong professional
+                relationships are built on trust and open communication.
+                Engaging in verbal communication with colleagues, clients, and
+                supervisors helps to establish rapport.
+              </li>
+              <li>
+                <strong>Ensuring Clarity and Precision:</strong> Clear and
+                precise communication is vital to avoid misunderstandings or
+                errors. Verbal communication allows for immediate clarification
+                of doubts and questions.
+              </li>
+              <li>
+                <strong>Enhancing Leadership and Management:</strong> Effective
+                leaders and managers must be adept at verbal communication to
+                inspire, motivate, and guide their teams.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Importance of Verbal Communication - Part 2 -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">
+            Importance of Verbal Communication in Professional Settings
+          </h2>
+          <p class="slide-subtitle">Part 2</p>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Negotiation and Persuasion:</strong> In many
+                professional settings, negotiations are a key aspect of
+                achieving desired outcomes. The ability to verbally articulate
+                one's position and reach a mutually beneficial agreement is
+                critical.
+              </li>
+              <li>
+                <strong>Conflict Resolution:</strong> Conflicts in the workplace
+                are inevitable, and verbal communication plays a critical role
+                in resolving these disputes.
+              </li>
+              <li>
+                <strong>Representing the Organization:</strong> Employees,
+                especially those in customer-facing roles, represent their
+                organization through verbal communication.
+              </li>
+              <li>
+                <strong>Career Advancement:</strong> Strong verbal communication
+                skills are often a key factor in professional advancement. Those
+                who communicate confidently and effectively tend to be seen as
+                leaders.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Types of Verbal Communication - Part 1 -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Types of Verbal Communication</h2>
+          <p class="slide-subtitle">Part 1</p>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Interpersonal Communication:</strong> Refers to the
+                direct, face-to-face interaction between two or more
+                individuals. This form of communication is common in
+                professional settings, whether in one-on-one meetings, small
+                group discussions, or casual conversations between colleagues.
+              </li>
+              <li>
+                <strong>Group Communication:</strong> Occurs when multiple
+                individuals engage in dialogue, such as during team meetings or
+                brainstorming sessions. This type of communication allows for
+                the exchange of ideas and perspectives among team members.
+              </li>
+              <li>
+                <strong>Public Speaking:</strong> A more formal type of verbal
+                communication that occurs when an individual speaks to a larger
+                audience, such as during presentations, conferences, or training
+                sessions.
+              </li>
+              <li>
+                <strong>Telephonic and Virtual Communication:</strong> With the
+                rise of remote work and digital communication platforms, verbal
+                communication over the phone or through video conferencing has
+                become increasingly important.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Types of Verbal Communication - Part 2 -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Types of Verbal Communication</h2>
+          <p class="slide-subtitle">Part 2</p>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Formal and Informal Communication:</strong> Verbal
+                communication in professional settings can also be classified as
+                formal or informal, depending on the context and the
+                relationship between the communicators.
+              </li>
+              <li>
+                <strong>Presentations and Speeches:</strong> A structured form
+                of verbal communication that is usually planned in advance and
+                delivered to an audience. In professional settings,
+                presentations are used to share information, provide updates, or
+                persuade an audience.
+              </li>
+              <li>
+                <strong>Meetings:</strong> A common professional context for
+                verbal communication. In meetings, participants share
+                information, discuss issues, and make decisions.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              In summary, verbal communication is an indispensable skill in
+              professional environments. From facilitating collaboration to
+              resolving conflicts, verbal communication ensures that ideas,
+              instructions, and feedback are shared effectively.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Key Elements of Verbal Communication -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Key Elements of Verbal Communication</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Effective verbal communication involves several essential elements
+              that ensure the message is conveyed accurately and understood by
+              the listener. These key elements help in shaping how the message
+              is received and perceived.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>Tone of Voice</li>
+              <li>Clarity and Conciseness</li>
+              <li>Vocabulary and Language Choice</li>
+              <li>Pace and Volume</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Tone of Voice -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Tone of Voice</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              The tone of voice refers to the emotional quality or attitude that
+              is conveyed through one's speech. It is not just what is said, but
+              how it is said, that often determines the emotional impact of the
+              communication.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Impact on Perception:</strong> The tone of voice can
+                significantly affect how a message is interpreted. A friendly,
+                warm tone may make the listener more receptive, while a harsh
+                tone could lead to defensiveness.
+              </li>
+              <li>
+                <strong>Conveying Emotions:</strong> Tone allows speakers to
+                express emotions that may not be explicitly stated in the words
+                they use.
+              </li>
+              <li>
+                <strong>Matching Tone with Context:</strong> In professional
+                settings, it is important to match the tone of voice with the
+                context.
+              </li>
+              <li>
+                <strong>Maintaining Professionalism:</strong> In professional
+                communication, the tone of voice should remain respectful and
+                professional, even in challenging situations.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9: Clarity and Conciseness -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Clarity and Conciseness</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Clarity and conciseness are vital elements of effective verbal
+              communication. Clear and concise speech ensures that the message
+              is understood quickly and without confusion.
+            </p>
+          </div>
+          <div class="two-column">
+            <div class="column">
+              <div class="info-card">
+                <h4>Clarity</h4>
+                <p>
+                  Refers to how easily a listener can understand the speaker's
+                  message. This is achieved by using simple, straightforward
+                  language and avoiding unnecessary jargon.
+                </p>
+                <ul>
+                  <li>Organize thoughts before speaking</li>
+                  <li>Use concrete examples</li>
+                  <li>Avoid rambling</li>
+                </ul>
+              </div>
+            </div>
+            <div class="column">
+              <div class="info-card">
+                <h4>Conciseness</h4>
+                <p>
+                  Refers to delivering the message in a brief and direct manner
+                  without omitting important details. In professional
+                  environments, time is often limited, so being concise is
+                  highly valued.
+                </p>
+                <ul>
+                  <li>Avoid filler words</li>
+                  <li>Get to the point quickly</li>
+                  <li>Eliminate redundancy</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10: Vocabulary and Language Choice -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Vocabulary and Language Choice</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              The vocabulary and language choice a speaker uses in verbal
+              communication has a significant impact on how the message is
+              received and interpreted.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Tailoring Vocabulary to the Audience:</strong> In
+                professional settings, it is important to adjust vocabulary
+                based on the audience's level of understanding.
+              </li>
+              <li>
+                <strong>Avoiding Jargon and Slang:</strong> While jargon may be
+                useful in specialized fields, overuse can alienate or confuse
+                listeners unfamiliar with the terminology.
+              </li>
+              <li>
+                <strong>Positive Language:</strong> The choice of words can
+                affect the tone and mood of the conversation. Positive language
+                can be more persuasive and leave a lasting impression.
+              </li>
+              <li>
+                <strong>Precision and Specificity:</strong> Choosing precise and
+                specific language helps convey the exact meaning intended.
+              </li>
+              <li>
+                <strong>Cultural Sensitivity in Language:</strong> In today's
+                globalized workplace, it is important to be aware of cultural
+                differences in language use.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: Pace and Volume -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Pace and Volume</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              The pace (speed) and volume (loudness) at which a person speaks
+              are key elements that can influence how a message is received.
+            </p>
+          </div>
+          <div class="two-column">
+            <div class="column">
+              <div class="info-card">
+                <h4>Pace</h4>
+                <ul>
+                  <li>
+                    Speaking too quickly can make it difficult for listeners to
+                    keep up
+                  </li>
+                  <li>
+                    Speaking too slowly can cause listeners to lose interest
+                  </li>
+                  <li>
+                    The ideal pace is steady and appropriate for the context
+                  </li>
+                  <li>Well-placed pauses can enhance verbal communication</li>
+                </ul>
+              </div>
+            </div>
+            <div class="column">
+              <div class="info-card">
+                <h4>Volume</h4>
+                <ul>
+                  <li>Speaking too loudly can be perceived as aggressive</li>
+                  <li>Speaking too softly can make it difficult to hear</li>
+                  <li>Adjusting volume based on context is essential</li>
+                  <li>Cultural considerations apply to both pace and volume</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 12: Effective Listening as a Verbal Skill -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Effective Listening as a Verbal Skill</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Listening is often viewed as a passive process in communication,
+              but it is, in fact, an active skill that is crucial to effective
+              verbal communication. Without effective listening, communication
+              becomes one-sided and incomplete.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>Active Listening Techniques</li>
+              <li>Barriers to Effective Listening</li>
+              <li>Enhancing Listening Skills</li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              In professional settings, effective listening fosters
+              collaboration, reduces misunderstandings, and helps build stronger
+              relationships.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: Active Listening Techniques -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Active Listening Techniques</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Active listening is a technique that requires the listener to
+              fully engage with the speaker, process the information, and
+              provide thoughtful feedback.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Paying Full Attention:</strong> Minimizing distractions,
+                both physical and mental, and maintaining eye contact with the
+                speaker.
+              </li>
+              <li>
+                <strong>Nonverbal Cues:</strong> Using signals such as nodding,
+                maintaining eye contact, and displaying facial expressions that
+                match the tone of the conversation.
+              </li>
+              <li>
+                <strong>Reflective Listening:</strong> Paraphrasing or
+                summarizing what the speaker has said to confirm understanding.
+              </li>
+              <li>
+                <strong>Asking Open-Ended Questions:</strong> Engaging the
+                speaker by asking questions that encourage further elaboration.
+              </li>
+              <li>
+                <strong>Providing Feedback:</strong> Offering verbal
+                affirmations and thoughtful comments on the topic.
+              </li>
+              <li>
+                <strong>Avoiding Interruptions:</strong> Refraining from
+                interrupting or finishing the speaker's sentences.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 14: Barriers to Effective Listening -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Barriers to Effective Listening</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Several barriers can prevent individuals from listening
+              effectively. Recognizing these obstacles is the first step toward
+              overcoming them.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Distractions:</strong> External distractions (noise,
+                mobile phones) and internal distractions (preoccupation with
+                personal thoughts).
+              </li>
+              <li>
+                <strong>Prejudgment:</strong> Forming opinions or conclusions
+                too early, based on preconceived notions.
+              </li>
+              <li>
+                <strong>Listening with the Intent to Respond:</strong> Focusing
+                on crafting a response rather than fully understanding the
+                speaker.
+              </li>
+              <li>
+                <strong>Lack of Interest or Engagement:</strong> Disengaging
+                when the topic is perceived as irrelevant.
+              </li>
+              <li>
+                <strong>Cultural Differences:</strong> Variations in
+                communication styles and nonverbal cues.
+              </li>
+              <li>
+                <strong>Emotional Barriers:</strong> Emotional responses such as
+                anger, frustration, or anxiety.
+              </li>
+              <li>
+                <strong>Information Overload:</strong> Being overwhelmed with
+                large amounts of information.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: Enhancing Listening Skills -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Enhancing Listening Skills</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Improving listening skills is an ongoing process that requires
+              self-awareness, practice, and deliberate effort.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Be Mindful of Biases:</strong> Setting aside personal
+                biases and approaching conversations with an open mind.
+              </li>
+              <li>
+                <strong>Practice Empathy:</strong> Putting oneself in the
+                speaker's shoes and trying to understand their feelings and
+                motivations.
+              </li>
+              <li>
+                <strong>Improve Focus and Concentration:</strong> Eliminating
+                distractions and practicing mindfulness techniques.
+              </li>
+              <li>
+                <strong>Active Participation:</strong> Engaging in the
+                conversation by asking clarifying questions and providing
+                feedback.
+              </li>
+              <li>
+                <strong>Note-Taking:</strong> Capturing key points during
+                meetings or presentations to improve focus and retention.
+              </li>
+              <li>
+                <strong>Develop Patience:</strong> Allowing the speaker to
+                finish their thoughts without interruption.
+              </li>
+              <li>
+                <strong>Seek Feedback:</strong> Requesting feedback on listening
+                abilities from colleagues or peers.
+              </li>
+              <li>
+                <strong>Training and Development:</strong> Attending workshops
+                or courses focused on communication and listening skills.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 16: Nonverbal Aspects Supporting Verbal Communication -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">
+            Nonverbal Aspects Supporting Verbal Communication
+          </h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Nonverbal communication plays a critical role in reinforcing and
+              supporting verbal communication. It involves the use of body
+              language, eye contact, facial expressions, gestures, and posture
+              to convey messages without words.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>Body Language</li>
+              <li>Eye Contact</li>
+              <li>Facial Expressions</li>
+              <li>Gestures and Posture</li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              In professional settings, understanding and mastering these
+              nonverbal cues can enhance communication effectiveness, improve
+              relationships, and prevent misunderstandings.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 17: Body Language -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Body Language</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Body language refers to the physical movements and behaviors that
+              individuals use to express emotions, attitudes, and intentions.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Open vs. Closed Posture:</strong> Open body language
+                (uncrossed arms, relaxed stance) signals receptiveness, while
+                closed body language may indicate defensiveness.
+              </li>
+              <li>
+                <strong>Mirroring:</strong> Subtly mirroring the body language
+                of the speaker can create a sense of rapport and connection.
+              </li>
+              <li>
+                <strong>Hand Movements:</strong> Hand gestures can enhance
+                verbal communication by emphasizing points or illustrating
+                concepts.
+              </li>
+              <li>
+                <strong>Professional Presence:</strong> Maintaining positive
+                body language conveys confidence and competence.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Eye Contact and Facial Expressions -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Eye Contact and Facial Expressions</h2>
+        </div>
+        <div class="slide-content">
+          <div class="two-column">
+            <div class="column">
+              <div class="info-card">
+                <h4>Eye Contact</h4>
+                <ul>
+                  <li>Establishes engagement and interest</li>
+                  <li>Conveys sincerity and trustworthiness</li>
+                  <li>Should be balanced - not too intense or too avoidant</li>
+                  <li>Cultural considerations are important</li>
+                </ul>
+              </div>
+            </div>
+            <div class="column">
+              <div class="info-card">
+                <h4>Facial Expressions</h4>
+                <ul>
+                  <li>Convey emotions and reactions</li>
+                  <li>Should align with verbal messages</li>
+                  <li>
+                    Emotional awareness is important in professional settings
+                  </li>
+                  <li>Managing microexpressions can help control reactions</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 19: Gestures and Posture -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Gestures and Posture</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Gestures and posture are important nonverbal cues that support
+              verbal communication by adding emphasis, clarity, and meaning to
+              spoken words.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Gestures:</strong> Hand and arm movements can emphasize
+                key points and illustrate ideas. In professional settings,
+                gestures should be purposeful and aligned with the message.
+              </li>
+              <li>
+                <strong>Posture:</strong> How a person stands or sits
+                communicates confidence, openness, and attentiveness. Good
+                posture signals professionalism.
+              </li>
+              <li>
+                <strong>Cultural Variations:</strong> The meaning of gestures
+                and posture can vary across cultures, making awareness important
+                in diverse environments.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 20: Barriers to Verbal Communication -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Barriers to Verbal Communication</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Barriers to verbal communication are obstacles that prevent clear
+              and effective exchanges of ideas. In professional settings, these
+              barriers can lead to misunderstandings, reduced productivity, and
+              strained relationships.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>Language Barriers</li>
+              <li>Cultural Differences</li>
+              <li>Emotional Barriers</li>
+              <li>Environmental Distractions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 21: Language and Cultural Barriers -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Language and Cultural Barriers</h2>
+        </div>
+        <div class="slide-content">
+          <div class="two-column">
+            <div class="column">
+              <div class="info-card">
+                <h4>Language Barriers</h4>
+                <ul>
+                  <li>Limited vocabulary</li>
+                  <li>Misinterpretation of meaning</li>
+                  <li>Dialects and accents</li>
+                  <li>
+                    Strategies: Simplifying language, asking for clarification,
+                    using visual aids
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="column">
+              <div class="info-card">
+                <h4>Cultural Differences</h4>
+                <ul>
+                  <li>Different communication styles</li>
+                  <li>Nonverbal communication norms</li>
+                  <li>Language nuances</li>
+                  <li>
+                    Strategies: Cultural awareness, active listening,
+                    clarification
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 22: Emotional and Environmental Barriers -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Emotional and Environmental Barriers</h2>
+        </div>
+        <div class="slide-content">
+          <div class="two-column">
+            <div class="column">
+              <div class="info-card">
+                <h4>Emotional Barriers</h4>
+                <ul>
+                  <li>Fear and anxiety</li>
+                  <li>Stress and fatigue</li>
+                  <li>Anger and frustration</li>
+                  <li>
+                    Strategies: Emotional regulation, supportive environments,
+                    recognizing triggers
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="column">
+              <div class="info-card">
+                <h4>Environmental Distractions</h4>
+                <ul>
+                  <li>Noise</li>
+                  <li>Physical barriers</li>
+                  <li>Poor lighting or visual clutter</li>
+                  <li>
+                    Strategies: Minimizing noise, ensuring proximity, optimizing
+                    technology
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Improving Verbal Communication Skills -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Improving Verbal Communication Skills</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Effective verbal communication requires continuous development and
+              refinement of skills to ensure clarity, confidence, and
+              appropriateness for different audiences.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>Techniques for Clearer Speech</li>
+              <li>Developing Confidence in Speaking</li>
+              <li>Tailoring Communication to the Audience</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 24: Techniques for Clearer Speech -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Techniques for Clearer Speech</h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Articulation:</strong> Pronouncing words clearly and
+                distinctly to avoid misunderstandings.
+              </li>
+              <li>
+                <strong>Pacing:</strong> Maintaining a moderate pace that allows
+                listeners to follow without becoming overwhelmed.
+              </li>
+              <li>
+                <strong>Pausing for Effect:</strong> Incorporating pauses to
+                emphasize key points and give listeners time to process
+                information.
+              </li>
+              <li>
+                <strong>Using Simple Language:</strong> Avoiding overly complex
+                sentences and using familiar vocabulary.
+              </li>
+              <li>
+                <strong>Breath Control:</strong> Using proper breathing
+                techniques to maintain a steady voice.
+              </li>
+              <li>
+                <strong>Feedback:</strong> Seeking feedback from colleagues or
+                mentors on speech clarity.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 25: Developing Confidence in Speaking -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Developing Confidence in Speaking</h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Preparation:</strong> Thoroughly preparing for meetings,
+                presentations, or conversations ensures confidence.
+              </li>
+              <li>
+                <strong>Practice:</strong> Rehearsing speeches, presentations,
+                or conversations builds familiarity and reduces anxiety.
+              </li>
+              <li>
+                <strong>Positive Visualization:</strong> Imagining successful
+                outcomes can help boost confidence.
+              </li>
+              <li>
+                <strong>Handling Nerves:</strong> Using techniques like deep
+                breathing and positive self-talk to manage anxiety.
+              </li>
+              <li>
+                <strong>Body Language:</strong> Confident body language
+                reinforces verbal communication.
+              </li>
+              <li>
+                <strong>Learning from Feedback:</strong> Accepting feedback
+                graciously and making adjustments strengthens skills.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 26: Tailoring Communication to the Audience -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Tailoring Communication to the Audience</h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Understanding the Audience:</strong> Knowing the
+                audience's background, expertise, and interests allows for
+                customized messaging.
+              </li>
+              <li>
+                <strong>Adapting Tone and Style:</strong> Different audiences
+                require different tones and styles of communication.
+              </li>
+              <li>
+                <strong>Providing Context:</strong> Offering additional
+                background information when necessary to ensure understanding.
+              </li>
+              <li>
+                <strong>Engaging the Audience:</strong> Adjusting communication
+                style based on audience engagement levels.
+              </li>
+              <li>
+                <strong>Cultural Sensitivity:</strong> Being aware of cultural
+                differences that affect communication.
+              </li>
+              <li>
+                <strong>Clarity in Objectives:</strong> Ensuring the message
+                aligns with the audience's needs or goals.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 27: Verbal Communication in Different Contexts -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">
+            Verbal Communication in Different Contexts
+          </h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Verbal communication varies significantly depending on the context
+              in which it occurs. Understanding the nuances of communication in
+              various settings can greatly enhance effectiveness and engagement.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>Formal vs. Informal Settings</li>
+              <li>One-on-One Conversations</li>
+              <li>Group Discussions and Meetings</li>
+              <li>Presentations and Public Speaking</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 28: Formal vs. Informal Settings -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Formal vs. Informal Settings</h2>
+        </div>
+        <div class="slide-content">
+          <div class="two-column">
+            <div class="column">
+              <div class="info-card">
+                <h4>Formal Communication</h4>
+                <ul>
+                  <li>Structured language</li>
+                  <li>Clear purpose</li>
+                  <li>Written documentation</li>
+                  <li>Professional tone</li>
+                </ul>
+              </div>
+            </div>
+            <div class="column">
+              <div class="info-card">
+                <h4>Informal Communication</h4>
+                <ul>
+                  <li>Casual tone</li>
+                  <li>Spontaneity</li>
+                  <li>Relationship building</li>
+                  <li>Personal anecdotes</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Being able to switch between formal and informal communication
+              styles is essential for effective interaction in professional
+              settings.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 29: One-on-One Conversations -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">One-on-One Conversations</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              One-on-one conversations are a fundamental form of verbal
+              communication that allows for personalized interaction.
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Building Rapport:</strong> Establishing trust and
+                openness through active listening, empathy, and eye contact.
+              </li>
+              <li>
+                <strong>Tailored Communication:</strong> Customizing messages
+                specifically to the individual's needs and understanding.
+              </li>
+              <li>
+                <strong>Feedback Mechanism:</strong> Allowing for immediate
+                feedback and dynamic dialogue through open-ended questions.
+              </li>
+              <li>
+                <strong>Nonverbal Cues:</strong> Body language, facial
+                expressions, and tone of voice provide additional context.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 30: Group Discussions and Meetings -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Group Discussions and Meetings</h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Encouraging Participation:</strong> Fostering an
+                inclusive environment where all participants feel comfortable
+                sharing their thoughts.
+              </li>
+              <li>
+                <strong>Managing Dynamics:</strong> Being aware of differing
+                personalities, opinions, and levels of assertiveness to
+                facilitate constructive discussions.
+              </li>
+              <li>
+                <strong>Facilitating Clarity:</strong> Ensuring messages are
+                clear and concise, summarizing key points periodically.
+              </li>
+              <li>
+                <strong>Using Visual Aids:</strong> Enhancing communication with
+                slides, charts, or diagrams to provide additional context.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 31: Presentations and Public Speaking -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Presentations and Public Speaking</h2>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Structuring the Presentation:</strong> Using a clear
+                introduction, body, and conclusion with signposted key points.
+              </li>
+              <li>
+                <strong>Engaging the Audience:</strong> Using storytelling,
+                rhetorical questions, and relatable examples to capture
+                attention.
+              </li>
+              <li>
+                <strong>Managing Anxiety:</strong> Employing techniques like
+                deep breathing and focusing on the message rather than the
+                audience.
+              </li>
+              <li>
+                <strong>Utilizing Feedback:</strong> Soliciting feedback through
+                Q&A sessions to gauge understanding and engagement.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 32: Let's Sum Up -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Let's Sum Up</h2>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              In summary, effective verbal communication is a multifaceted skill
+              that encompasses various techniques and considerations tailored to
+              different contexts. From understanding the importance of clarity,
+              tone, and audience engagement to navigating the nuances of formal
+              and informal settings, mastering verbal communication enhances
+              interpersonal interactions and fosters collaboration.
+            </p>
+          </div>
+          <div class="highlight-box">
+            <p>
+              By continually refining these skills and adapting to the unique
+              demands of each communication context, individuals can ensure that
+              their verbal interactions are not only clear and impactful but
+              also meaningful and productive.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33: Unit End Exercise -->
+      <div class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">Unit End Exercise</h2>
+        </div>
+        <div class="slide-content">
+          <div class="exercise-card">
+            <h4>Questions for Reflection:</h4>
+            <div class="exercise-task">
+              What is verbal communication, and why is it important in
+              professional settings?
+            </div>
+            <div class="exercise-task">
+              List and describe the key elements that contribute to effective
+              verbal communication.
+            </div>
+            <div class="exercise-task">
+              What are some techniques for active listening, and how can they
+              improve verbal communication?
+            </div>
+            <div class="exercise-task">
+              Identify at least four barriers to verbal communication and
+              provide examples of each.
+            </div>
+            <div class="exercise-task">
+              Describe three techniques that can help improve clarity in speech.
+              Why is clarity essential in communication?
+            </div>
+            <div class="exercise-task">
+              What strategies can individuals use to build confidence in their
+              speaking abilities?
+            </div>
+            <div class="exercise-task">
+              How can speakers tailor their communication style to suit
+              different audiences? Provide specific examples.
+            </div>
+            <div class="exercise-task">
+              Compare and contrast verbal communication in formal and informal
+              settings. What adjustments should a speaker make in each context?
+            </div>
+            <div class="exercise-task">
+              What are some effective strategies for facilitating communication
+              during group discussions or meetings?
+            </div>
+            <div class="exercise-task">
+              What are the key components of a successful presentation? How can
+              a speaker engage their audience effectively?
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Introduction to Verbal Communication Presentation</p>
+    </div>
+
+    <script>
+      // Navigation functionality
+      document.getElementById("topBtn").addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      document.getElementById("downBtn").addEventListener("click", function () {
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: "smooth",
+        });
+      });
+
+      // Progress bar functionality
+      window.addEventListener("scroll", function () {
+        const winScroll =
+          document.body.scrollTop || document.documentElement.scrollTop;
+        const height =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById("progressBar").style.width = scrolled + "%";
+      });
+
+      // Add fade-in animation to slides when they come into view
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".slide").forEach((slide) => {
+        slide.style.opacity = "0";
+        slide.style.transform = "translateY(20px)";
+        slide.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        observer.observe(slide);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,2798 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Group Discussion</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #f5f7fa;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .presentation-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .slide {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        margin-bottom: 30px;
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .slide-header {
+        margin-bottom: 30px;
+        border-bottom: 2px solid #e1e8ed;
+        padding-bottom: 15px;
+      }
+
+      .slide-title {
+        font-family: "Montserrat", sans-serif;
+        font-size: 2.5rem;
+        color: #1a73e8;
+        margin-bottom: 10px;
+      }
+
+      .slide-subtitle {
+        font-size: 1.2rem;
+        color: #5f6368;
+      }
+
+      .slide-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .text-section {
+        margin-bottom: 20px;
+      }
+
+      .text-section h3 {
+        font-family: "Montserrat", sans-serif;
+        color: #1a73e8;
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+      }
+
+      .text-section p {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+
+      .image-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+      }
+
+      .image-container img {
+        max-width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .list-section {
+        margin-bottom: 20px;
+      }
+
+      .list-section ul {
+        padding-left: 25px;
+      }
+
+      .list-section li {
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+      }
+
+      .two-column {
+        display: flex;
+        gap: 30px;
+        margin-top: 20px;
+      }
+
+      .column {
+        flex: 1;
+      }
+
+      .highlight-box {
+        background-color: #e8f0fe;
+        border-left: 4px solid #1a73e8;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .navigation {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-btn {
+        background-color: #1a73e8;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .nav-btn:hover {
+        background-color: #0d47a1;
+        transform: scale(1.1);
+      }
+
+      .progress-indicator {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 5px;
+        background-color: #1a73e8;
+        z-index: 101;
+        transition: width 0.3s ease;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 20px;
+        color: #5f6368;
+        font-size: 0.9rem;
+      }
+
+      .info-card {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .info-card h4 {
+        color: #1a73e8;
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        border: 1px solid #e1e8ed;
+        padding: 12px;
+        text-align: left;
+      }
+
+      .comparison-table th {
+        background-color: #e8f0fe;
+        color: #1a73e8;
+      }
+
+      .comparison-table tr:nth-child(even) {
+        background-color: #f8f9fa;
+      }
+
+      .qa-pair {
+        margin-bottom: 25px;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+      }
+
+      .question {
+        font-weight: 500;
+        color: #1a73e8;
+        margin-bottom: 10px;
+      }
+
+      .answer {
+        padding-left: 20px;
+      }
+
+      .protocol-card {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+      }
+
+      .protocol-icon {
+        font-size: 2rem;
+        color: #1a73e8;
+        margin-right: 15px;
+        width: 60px;
+        text-align: center;
+      }
+
+      .protocol-info {
+        flex: 1;
+      }
+
+      .protocol-info h4 {
+        margin-bottom: 5px;
+        color: #1a73e8;
+      }
+
+      .frame-structure {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 20px 0;
+      }
+
+      .frame-field {
+        background-color: #e8f0fe;
+        border: 1px solid #1a73e8;
+        border-radius: 4px;
+        padding: 10px;
+        text-align: center;
+        flex-grow: 1;
+        min-width: 100px;
+      }
+
+      .frame-field.primary {
+        background-color: #1a73e8;
+        color: white;
+        font-weight: bold;
+      }
+
+      .process-flow {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+
+      .process-step {
+        background-color: #f8f9fa;
+        border: 1px solid #e1e8ed;
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+        width: 150px;
+      }
+
+      .process-arrow {
+        color: #1a73e8;
+        font-size: 1.5rem;
+        margin: 0 10px;
+      }
+
+      .bit-position {
+        display: flex;
+        align-items: center;
+        margin: 5px 0;
+      }
+
+      .bit-position-number {
+        width: 30px;
+        height: 30px;
+        background-color: #1a73e8;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+        font-weight: bold;
+      }
+
+      .bit-position-value {
+        background-color: #f8f9fa;
+        border: 1px solid #e1e8ed;
+        border-radius: 4px;
+        padding: 5px 10px;
+        min-width: 30px;
+        text-align: center;
+      }
+
+      .bit-position.parity {
+        background-color: #e8f0fe;
+      }
+
+      .bit-position.data {
+        background-color: #f8f9fa;
+      }
+
+      .byte-stuffing-example {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+
+      .byte {
+        background-color: #f8f9fa;
+        border: 1px solid #e1e8ed;
+        border-radius: 4px;
+        padding: 10px;
+        margin: 0 5px;
+        min-width: 40px;
+        text-align: center;
+      }
+
+      .byte.flag {
+        background-color: #1a73e8;
+        color: white;
+        font-weight: bold;
+      }
+
+      .byte.esc {
+        background-color: #f1c40f;
+        color: white;
+        font-weight: bold;
+      }
+
+      .byte.stuffed {
+        background-color: #e8f0fe;
+        border: 1px dashed #1a73e8;
+      }
+
+      .error-types {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+
+      .error-type {
+        text-align: center;
+        width: 200px;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .error-type img {
+        max-width: 100%;
+        height: 100px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+      }
+
+      .error-type h4 {
+        color: #1a73e8;
+        margin-bottom: 5px;
+      }
+
+      @media (max-width: 768px) {
+        .slide {
+          padding: 20px;
+        }
+
+        .slide-title {
+          font-size: 1.8rem;
+        }
+
+        .two-column {
+          flex-direction: column;
+        }
+
+        .navigation {
+          bottom: 20px;
+          top: auto;
+          flex-direction: row;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="progress-indicator" id="progressBar"></div>
+
+    <div class="navigation">
+      <button class="nav-btn" id="topBtn">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+      <button class="nav-btn" id="downBtn">
+        <i class="fas fa-arrow-down"></i>
+      </button>
+    </div>
+
+    <div class="presentation-container">
+      <!-- Slide 1: Introduction -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Introduction to Group Discussion (GD)</h1>
+          <p class="slide-subtitle">A powerful assessment technique</p>
+        </div>
+        <div class="slide-content">
+          <div class="image-container">
+            <img
+              src="https://images.shiksha.com/mediadata/images/articles/1574744440phpQkSWwJ.jpeg"
+              alt="Group Discussion"
+            />
+          </div>
+          <div class="text-section">
+            <p>
+              Group discussions (GDs) are a common assessment technique used in
+              various contexts, particularly in recruitment processes. They
+              provide a platform for candidates to demonstrate their
+              communication abilities, analytical thinking, teamwork, and
+              leadership skills.
+            </p>
+          </div>
+          <div class="highlight-box">
+            <p>
+              This section explores the definition and purpose of group
+              discussions, their importance in selection processes, and the key
+              skills that are assessed during these discussions.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Definition and Purpose -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Definition and Purpose</h1>
+          <p class="slide-subtitle">Understanding group discussions</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Definition of Group Discussion</h3>
+            <p>
+              A group discussion is a structured conversation among a selected
+              group of individuals, typically ranging from 4 to 12 participants,
+              centered around a specific topic. The format can vary, but it
+              generally involves participants sharing their opinions, debating
+              issues, and collaboratively exploring solutions to a problem or
+              topic posed by a moderator or facilitator.
+            </p>
+          </div>
+          <div class="text-section">
+            <h3>Purpose of Group Discussions in Various Contexts</h3>
+            <p>
+              The primary purpose of a group discussion is to facilitate
+              communication and collaboration among participants. In educational
+              settings, GDs encourage critical thinking and allow students to
+              engage with diverse perspectives. In professional settings,
+              particularly in recruitment processes, the purpose extends beyond
+              assessing individual knowledge to evaluating how candidates
+              interact with others, their ability to work in a team, and their
+              leadership potential.
+            </p>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Unlike a debate, which often involves opposing sides arguing for a
+              particular viewpoint, a GD encourages open dialogue and the
+              exchange of ideas, aiming for a deeper understanding of the
+              subject matter.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Importance in Selection Processes -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Importance in Selection Processes</h1>
+          <p class="slide-subtitle">Why GDs matter in recruitment</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Group discussions are increasingly becoming a vital component of
+              the recruitment process. They serve several essential functions
+              that enhance the selection process for employers:
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Holistic Evaluation of Candidates:</strong> GDs provide
+                insights into how candidates behave in a group setting, allowing
+                employers to gauge interpersonal skills and compatibility with
+                team dynamics.
+              </li>
+              <li>
+                <strong>Assessment of Soft Skills:</strong> GDs are particularly
+                effective in assessing soft skills such as communication,
+                persuasion, teamwork, and emotional intelligence.
+              </li>
+              <li>
+                <strong>Real-Time Decision-Making Abilities:</strong> GDs reveal
+                how candidates handle pressure, make quick decisions, and
+                navigate complex discussions.
+              </li>
+              <li>
+                <strong>Team Dynamics:</strong> GDs allow evaluators to see how
+                candidates influence group dynamics, handle disagreements, and
+                support or challenge others' ideas.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              GDs help employers identify candidates who not only possess the
+              required skills but also fit the company culture and can work
+              effectively in collaborative environments.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Advantages of GDs Over Traditional Interviews -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">
+            Advantages of GDs Over Traditional Interviews
+          </h1>
+          <p class="slide-subtitle">Why GDs are more effective</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              GDs have several advantages compared to traditional interview
+              formats:
+            </p>
+          </div>
+          <div class="list-section">
+            <ul>
+              <li>
+                <strong>Diversity of Perspectives:</strong> In a GD,
+                participants bring diverse backgrounds and viewpoints, leading
+                to richer discussions and revealing how candidates think
+                critically when exposed to differing opinions.
+              </li>
+              <li>
+                <strong>Reduced Bias:</strong> GDs can mitigate bias by allowing
+                multiple evaluators to observe candidates simultaneously and
+                discuss their observations collectively.
+              </li>
+              <li>
+                <strong>Engagement and Motivation:</strong> The interactive
+                nature of GDs often makes candidates feel more engaged than in a
+                traditional interview, leading to more authentic performances.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              GDs ultimately help employers identify candidates who not only
+              possess the required skills but also fit the company culture and
+              can work effectively in collaborative environments.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Key Skills Assessed in GDs -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Key Skills Assessed in GDs</h1>
+          <p class="slide-subtitle">What evaluators look for</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Several key skills are assessed during group discussions, which
+              can be categorized into hard and soft skills:
+            </p>
+          </div>
+          <div class="two-column">
+            <div class="column">
+              <div class="info-card">
+                <h4><i class="fas fa-comments"></i> Communication Skills</h4>
+                <p>
+                  Clarity, coherence, and confidence in verbal expressions,
+                  active listening, and effective non-verbal communication.
+                </p>
+              </div>
+              <div class="info-card">
+                <h4>
+                  <i class="fas fa-brain"></i> Analytical and Critical Thinking
+                </h4>
+                <p>
+                  Ability to dissect problems, consider various perspectives,
+                  and formulate logical arguments.
+                </p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="info-card">
+                <h4><i class="fas fa-users"></i> Teamwork and Collaboration</h4>
+                <p>
+                  Cooperation, respect, and willingness to consider others'
+                  ideas and build on contributions.
+                </p>
+              </div>
+              <div class="info-card">
+                <h4><i class="fas fa-crown"></i> Leadership Qualities</h4>
+                <p>
+                  Guiding discussions, motivating others, facilitating
+                  productive outcomes, and conflict resolution.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Types of Group Discussions -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Types of Group Discussions</h1>
+          <p class="slide-subtitle">Different formats for different purposes</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Group discussions can be categorized into several distinct types,
+              each serving specific purposes and assessing various skills.
+              Understanding these categories not only aids participants in
+              preparation but also enhances the overall effectiveness of the
+              discussion.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Four Main Types of Group Discussions</h3>
+            <ul>
+              <li>
+                <strong>Topic-Based GDs:</strong> Center around a predetermined
+                subject or theme, which participants are expected to discuss in
+                depth.
+              </li>
+              <li>
+                <strong>Case Study-Based GDs:</strong> Involve analyzing a
+                specific scenario or problem presented in a detailed case study.
+              </li>
+              <li>
+                <strong>Abstract GDs:</strong> Focus on topics that are
+                conceptual or philosophical in nature, often involving themes
+                without clear-cut answers.
+              </li>
+              <li>
+                <strong>Factual and Opinion-Based GDs:</strong> Based on topics
+                with concrete information or personal viewpoints and subjective
+                interpretations.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Each type assesses distinct skills and serves unique purposes,
+              making them valuable tools in educational and professional
+              settings.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Topic-Based GDs -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Topic-Based GDs</h1>
+          <p class="slide-subtitle">Exploring specific subjects</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Definition</h3>
+            <p>
+              Topic-based group discussions center around a predetermined
+              subject or theme, which participants are expected to discuss in
+              depth. Topics can encompass a wide range of issues, including
+              current events, social concerns, industry trends, or hypothetical
+              scenarios.
+            </p>
+          </div>
+          <div class="text-section">
+            <h3>Key Features</h3>
+            <ul>
+              <li>
+                <strong>Preparation:</strong> Participants are typically
+                informed of the discussion topic ahead of time, allowing them to
+                research and prepare.
+              </li>
+              <li>
+                <strong>Diversity of Perspectives:</strong> Participants from
+                varied backgrounds bring multiple viewpoints, enriching the
+                dialogue.
+              </li>
+              <li>
+                <strong>Structure:</strong> These discussions can vary in
+                formality depending on the setting.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Example Topics: "The impact of social media on communication,"
+              "Climate change: A global challenge or a local concern?"
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Case Study-Based GDs -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Case Study-Based GDs</h1>
+          <p class="slide-subtitle">Analyzing real-world scenarios</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Definition</h3>
+            <p>
+              Case study-based group discussions involve analyzing a specific
+              scenario or problem presented in a detailed case study.
+              Participants must examine the case and collaboratively discuss
+              possible solutions or strategies.
+            </p>
+          </div>
+          <div class="text-section">
+            <h3>Key Features</h3>
+            <ul>
+              <li>
+                <strong>Limited Preparation Time:</strong> Participants may
+                receive the case study shortly before the discussion, requiring
+                quick thinking.
+              </li>
+              <li>
+                <strong>Collaboration:</strong> These discussions foster
+                teamwork as participants must work together to analyze the case.
+              </li>
+              <li>
+                <strong>Practical Application:</strong> Participants must apply
+                theoretical knowledge to the case, demonstrating understanding
+                of relevant concepts.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Example Case Studies: A company facing a public relations crisis,
+              a nonprofit addressing funding shortfalls, an educational
+              institution enhancing student engagement.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9: Abstract GDs -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Abstract GDs</h1>
+          <p class="slide-subtitle">Exploring conceptual ideas</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Definition</h3>
+            <p>
+              Abstract group discussions focus on topics that are conceptual or
+              philosophical in nature, often involving themes that do not have
+              clear-cut answers or solutions. These discussions challenge
+              participants to engage with ideas that provoke thought and
+              creativity.
+            </p>
+          </div>
+          <div class="text-section">
+            <h3>Key Features</h3>
+            <ul>
+              <li>
+                <strong>Ambiguity:</strong> Topics are typically open to
+                interpretation, allowing for a wide range of responses.
+              </li>
+              <li>
+                <strong>Encouragement of Creativity:</strong> Participants are
+                prompted to think outside the box and explore unconventional
+                ideas.
+              </li>
+              <li>
+                <strong>Less Emphasis on Factual Accuracy:</strong> Focus is
+                more on reasoning and creativity than on adhering strictly to
+                facts.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Example Topics: "What is the meaning of success?" "Is freedom more
+              important than security?" "Can technology enhance human
+              connection?"
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10: Factual and Opinion-Based GDs -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Factual and Opinion-Based GDs</h1>
+          <p class="slide-subtitle">Balancing data and perspectives</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Definition</h3>
+            <p>
+              Factual group discussions are based on topics with concrete
+              information, requiring participants to rely on data and evidence.
+              In contrast, opinion-based discussions focus on personal
+              viewpoints and subjective interpretations of issues.
+            </p>
+          </div>
+          <div class="text-section">
+            <h3>Key Features</h3>
+            <ul>
+              <li>
+                <strong>Factual Discussions:</strong> Participants need to
+                research and present data, statistics, or factual information to
+                support arguments.
+              </li>
+              <li>
+                <strong>Opinion-Based Discussions:</strong> Allow for personal
+                narratives, subjective experiences, and emotional insights.
+              </li>
+              <li>
+                <strong>Balance of Perspectives:</strong> Participants must
+                effectively balance fact-based arguments with personal insights.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Example Topics: Factual - "Economic implications of renewable
+              energy adoption"; Opinion - "Should college education be free for
+              all?"
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: Key Roles in a Group Discussion -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Key Roles in a Group Discussion</h1>
+          <p class="slide-subtitle">Understanding group dynamics</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              In any group discussion (GD), various roles contribute to the
+              overall dynamics and effectiveness of the conversation.
+              Understanding these roles is essential for successful
+              participation and for achieving the objectives of the discussion.
+            </p>
+          </div>
+          <div class="info-card">
+            <h4>Three Primary Roles in a Group Discussion</h4>
+            <ul>
+              <li>
+                <strong>Moderator:</strong> The facilitator responsible for
+                guiding the conversation and creating a productive environment.
+              </li>
+              <li>
+                <strong>Participants:</strong> The individuals engaging in the
+                group discussion, contributing their thoughts and ideas.
+              </li>
+              <li>
+                <strong>Observers:</strong> Individuals who watch and listen
+                without actively participating, typically providing evaluative
+                feedback.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Each role has distinct responsibilities and functions that
+              contribute to the overall effectiveness of the group discussion.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 12: Moderator's Role -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Moderator's Role</h1>
+          <p class="slide-subtitle">Facilitating effective discussions</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Definition</h3>
+            <p>
+              The moderator is the facilitator of the group discussion,
+              responsible for guiding the conversation, ensuring that it stays
+              on topic, and creating a productive environment for all
+              participants.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Key Responsibilities</h3>
+            <ul>
+              <li>
+                <strong>Setting the Agenda:</strong> Introduces the topic and
+                outlines the objectives of the discussion.
+              </li>
+              <li>
+                <strong>Encouraging Participation:</strong> Ensures all
+                participants contribute and manages dominant voices.
+              </li>
+              <li>
+                <strong>Maintaining Focus:</strong> Keeps the discussion on
+                track and relevant to the topic.
+              </li>
+              <li>
+                <strong>Time Management:</strong> Manages the time allotted for
+                the discussion.
+              </li>
+              <li>
+                <strong>Fostering a Respectful Atmosphere:</strong> Creates an
+                inclusive environment where all feel comfortable sharing views.
+              </li>
+              <li>
+                <strong>Summarizing Key Points:</strong> Highlights agreements,
+                disagreements, and actionable outcomes.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Skills Required: Strong communication, active listening, conflict
+              resolution, and organizational skills.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: Participant's Role -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Participant's Role</h1>
+          <p class="slide-subtitle">Contributing effectively</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Definition</h3>
+            <p>
+              Participants are the individuals engaging in the group discussion.
+              They contribute their thoughts, ideas, and arguments related to
+              the topic under discussion.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Key Responsibilities</h3>
+            <ul>
+              <li>
+                <strong>Preparing for the Discussion:</strong> Come prepared
+                with relevant knowledge about the topic.
+              </li>
+              <li>
+                <strong>Contributing Ideas:</strong> Share viewpoints clearly
+                and concisely, adding value to the discussion.
+              </li>
+              <li>
+                <strong>Listening Actively:</strong> Pay attention to others,
+                showing respect for different opinions.
+              </li>
+              <li>
+                <strong>Engaging with Others:</strong> Ask questions, provide
+                feedback, and build on others' contributions.
+              </li>
+              <li>
+                <strong>Managing Emotions:</strong> Remain calm and engage in
+                respectful discourse, even during disagreements.
+              </li>
+              <li>
+                <strong>Summarizing and Reflecting:</strong> Contribute to
+                collective understanding of the topic.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Skills Required: Effective communication, critical thinking,
+              emotional intelligence, and teamwork.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 14: Observer's Role -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Observer's Role</h1>
+          <p class="slide-subtitle">Evaluating group dynamics</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Definition</h3>
+            <p>
+              Observers are individuals who watch and listen to the group
+              discussion without actively participating. Their role is typically
+              evaluative, providing feedback on the dynamics and effectiveness
+              of the discussion.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Key Responsibilities</h3>
+            <ul>
+              <li>
+                <strong>Monitoring Dynamics:</strong> Pay attention to how
+                participants interact, noting communication styles and
+                engagement levels.
+              </li>
+              <li>
+                <strong>Evaluating Performance:</strong> Assess both the
+                moderator's and participants' performances based on pre-defined
+                criteria.
+              </li>
+              <li>
+                <strong>Taking Notes:</strong> Capture key points, participant
+                contributions, and notable dynamics or conflicts.
+              </li>
+              <li>
+                <strong>Providing Feedback:</strong> Offer constructive feedback
+                on strengths, areas for improvement, and suggestions.
+              </li>
+              <li>
+                <strong>Identifying Patterns:</strong> Highlight effective
+                strategies and potential challenges within the group dynamics.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Skills Required: Strong observational and analytical skills,
+              objectivity, and ability to provide constructive criticism.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: Techniques for Effective Participation -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Techniques for Effective Participation</h1>
+          <p class="slide-subtitle">Mastering group discussion skills</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Successful participation in group discussions requires a
+              combination of communication skills, active engagement, and
+              interpersonal dynamics. Here, we explore five essential techniques
+              that can enhance one's effectiveness as a participant in group
+              discussions.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Five Essential Techniques</h3>
+            <ul>
+              <li>
+                <strong>Listening Actively:</strong> Fully concentrating,
+                understanding, responding, and remembering what is being said.
+              </li>
+              <li>
+                <strong>Speaking Clearly and Confidently:</strong> Articulating
+                thoughts in a coherent and assertive manner.
+              </li>
+              <li>
+                <strong>Structuring Responses and Arguments:</strong> Organizing
+                thoughts logically when contributing to a discussion.
+              </li>
+              <li>
+                <strong>Managing Time and Turn-Taking:</strong> Contributing
+                within time constraints while respecting others' opportunities
+                to speak.
+              </li>
+              <li>
+                <strong>Demonstrating Leadership and Teamwork:</strong> Taking
+                initiative while valuing others' contributions.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Mastering these techniques is essential for achieving productive
+              outcomes and fostering collaborative environments.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 16: Listening Actively -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Listening Actively</h1>
+          <p class="slide-subtitle">
+            The foundation of effective communication
+          </p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Definition</h3>
+            <p>
+              Active listening is the practice of fully concentrating,
+              understanding, responding, and remembering what is being said
+              during a discussion. It goes beyond simply hearing words; it
+              involves engaging with the speaker and showing genuine interest in
+              their contributions.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Techniques for Active Listening</h3>
+            <ul>
+              <li>
+                <strong>Maintain Eye Contact:</strong> Demonstrates engagement
+                and shows the speaker you are focused.
+              </li>
+              <li>
+                <strong>Use Non-Verbal Cues:</strong> Nodding and facial
+                expressions convey understanding and encourage the speaker.
+              </li>
+              <li>
+                <strong>Avoid Interrupting:</strong> Allow others to finish
+                their points before responding.
+              </li>
+              <li>
+                <strong>Paraphrase and Summarize:</strong> Clarifies
+                understanding and demonstrates active listening.
+              </li>
+              <li>
+                <strong>Ask Clarifying Questions:</strong> Helps deepen
+                understanding and encourages further discussion.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Active listening fosters a respectful atmosphere where
+              participants feel valued and understood, leading to more
+              productive discussions.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 17: Speaking Clearly and Confidently -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Speaking Clearly and Confidently</h1>
+          <p class="slide-subtitle">Making your voice heard</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Definition</h3>
+            <p>
+              Clear and confident speech involves articulating thoughts in a
+              coherent and assertive manner, making it easier for others to
+              understand and engage with your ideas.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Techniques for Clear and Confident Speaking</h3>
+            <ul>
+              <li>
+                <strong>Practice Articulation:</strong> Pay attention to
+                pronunciation and pacing to ensure you are easily understood.
+              </li>
+              <li>
+                <strong>Use a Strong Voice:</strong> Project your voice to
+                convey confidence and ensure you are heard.
+              </li>
+              <li>
+                <strong>Organize Your Thoughts:</strong> Structure your ideas
+                with a clear beginning, middle, and end.
+              </li>
+              <li>
+                <strong>Avoid Filler Words:</strong> Minimize the use of "um,"
+                "uh," and "like" to maintain credibility.
+              </li>
+              <li>
+                <strong>Pause Effectively:</strong> Use pauses to emphasize
+                points and give listeners time to absorb your message.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Clear and confident speaking enhances your presence in
+              discussions, making your contributions more impactful and
+              persuasive.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: Structuring Responses and Arguments -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Structuring Responses and Arguments</h1>
+          <p class="slide-subtitle">Organizing your thoughts</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Definition</h3>
+            <p>
+              Structuring responses means organizing your thoughts logically
+              when contributing to a discussion. A well-structured argument is
+              easier for others to follow and engage with.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Techniques for Structuring Responses</h3>
+            <ul>
+              <li>
+                <strong>Use the PREP Model:</strong> Point, Reason, Example, and
+                Point. Start with your main point, provide reasons, back it up
+                with examples, and restate your main point.
+              </li>
+              <li>
+                <strong>Employ the "Rule of Three":</strong> Aim for three key
+                ideas when making points, as this is easier to remember and
+                digest.
+              </li>
+              <li>
+                <strong>Provide Context:</strong> Introduce your argument with
+                background information to frame your points.
+              </li>
+              <li>
+                <strong>Summarize Key Points:</strong> Reinforce clarity and
+                retention by summarizing your main ideas.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Well-structured responses enhance the quality of the discussion,
+              making it more coherent and focused, which encourages further
+              exploration of the topic.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 19: Managing Time and Turn-Taking -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Managing Time and Turn-Taking</h1>
+          <p class="slide-subtitle">Respecting the discussion flow</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Definition</h3>
+            <p>
+              Time management and turn-taking refer to the ability to contribute
+              within the time constraints of the discussion while respecting
+              others' opportunities to speak.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Techniques for Managing Time and Turn-Taking</h3>
+            <ul>
+              <li>
+                <strong>Be Mindful of Time Limits:</strong> Be conscious of time
+                limits and practice concise speaking.
+              </li>
+              <li>
+                <strong>Signal When You're Done:</strong> Use verbal cues or
+                body language to indicate when you have finished speaking.
+              </li>
+              <li>
+                <strong>Encourage Inclusivity:</strong> Gently encourage quieter
+                members to share their views.
+              </li>
+              <li>
+                <strong>Use a Timer:</strong> In formal discussions, use a timer
+                to ensure all participants have equal opportunity.
+              </li>
+              <li>
+                <strong>Respect Others' Speaking Time:</strong> Avoid
+                interrupting and be aware of cues that others want to speak.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Managing time and turn-taking contributes to a fair and inclusive
+              discussion environment, where all voices are heard and respected.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 20: Demonstrating Leadership and Teamwork -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Demonstrating Leadership and Teamwork</h1>
+          <p class="slide-subtitle">Balancing initiative and collaboration</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Definition</h3>
+            <p>
+              Demonstrating leadership and teamwork involves taking initiative
+              while also valuing the contributions of others and fostering a
+              collaborative atmosphere.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Techniques for Demonstrating Leadership and Teamwork</h3>
+            <ul>
+              <li>
+                <strong>Lead by Example:</strong> Exhibit positive behaviors
+                like active listening and respectful communication.
+              </li>
+              <li>
+                <strong>Encourage Participation:</strong> Actively invite
+                quieter members to share their thoughts.
+              </li>
+              <li>
+                <strong>Build on Others' Ideas:</strong> Acknowledge and expand
+                upon the contributions of others.
+              </li>
+              <li>
+                <strong>Remain Open to Feedback:</strong> Be receptive to
+                others' opinions and suggestions.
+              </li>
+              <li>
+                <strong>Facilitate Consensus:</strong> Help find common ground
+                when discussions become polarized.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Demonstrating leadership and teamwork enhances the quality of the
+              discussion and fosters a positive group dynamic.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 21: Common Mistakes in Group Discussions -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Common Mistakes in Group Discussions</h1>
+          <p class="slide-subtitle">Pitfalls to avoid</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Group discussions (GD) are essential in both academic and
+              professional settings, but many participants may unintentionally
+              sabotage their performance or the group dynamics by committing
+              certain common mistakes. These errors not only hinder the
+              effectiveness of the discussion but may also reflect poorly on the
+              participant's skills.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Five Common Mistakes</h3>
+            <ul>
+              <li>
+                <strong>Dominating the Discussion:</strong> Monopolizing the
+                conversation and preventing others from sharing their
+                viewpoints.
+              </li>
+              <li>
+                <strong>Interrupting Others:</strong> Cutting off another person
+                mid-sentence, which can be perceived as rude and disrespectful.
+              </li>
+              <li>
+                <strong>Lack of Preparation or Knowledge:</strong> Participating
+                without sufficient understanding of the topic.
+              </li>
+              <li>
+                <strong>Emotional Reactions:</strong> Responding with strong
+                emotions that interfere with constructive engagement.
+              </li>
+              <li>
+                <strong>Being Overly Aggressive or Passive:</strong> Either
+                dominating the conversation or failing to contribute
+                meaningfully.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              By recognizing these errors and adopting strategies to avoid them,
+              participants can contribute meaningfully to group discussions.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 22: Dominating the Discussion -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Dominating the Discussion</h1>
+          <p class="slide-subtitle">The danger of talking too much</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Definition</h3>
+            <p>
+              Dominating a discussion occurs when one participant monopolizes
+              the conversation, contributing too much or overshadowing other
+              participants' input. This prevents others from sharing their
+              viewpoints, making the discussion one-sided.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Impact on Group Dynamics</h3>
+            <ul>
+              <li>
+                <strong>Suppressing Other Voices:</strong> Discourages quieter
+                or less assertive participants from contributing.
+              </li>
+              <li>
+                <strong>Unbalanced Dialogue:</strong> Makes the conversation
+                unbalanced and fails to cover all necessary perspectives.
+              </li>
+              <li>
+                <strong>Narrowing the Scope:</strong> Limits the range of topics
+                or ideas explored.
+              </li>
+            </ul>
+          </div>
+          <div class="text-section">
+            <h3>How to Avoid Dominating</h3>
+            <ul>
+              <li>
+                <strong>Be Mindful of Time:</strong> Keep track of how long you
+                have been speaking.
+              </li>
+              <li>
+                <strong>Engage Others:</strong> After making a point, invite
+                others to share their thoughts.
+              </li>
+              <li>
+                <strong>Practice Restraint:</strong> Resist the urge to respond
+                to every point.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Interrupting Others -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Interrupting Others</h1>
+          <p class="slide-subtitle">The importance of respectful listening</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Definition</h3>
+            <p>
+              Interrupting occurs when a participant cuts off another person
+              mid-sentence, stopping them from completing their thought.
+              Interruptions may occur unintentionally due to enthusiasm or
+              urgency, but they can be perceived as rude and disrespectful.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Impact on Group Dynamics</h3>
+            <ul>
+              <li>
+                <strong>Disrupting the Flow:</strong> Breaks the natural flow of
+                conversation and causes frustration.
+              </li>
+              <li>
+                <strong>Undermining Contributions:</strong> Makes others feel
+                undervalued or unheard.
+              </li>
+              <li>
+                <strong>Creating Tension:</strong> Often leads to tension within
+                the group and arguments.
+              </li>
+            </ul>
+          </div>
+          <div class="text-section">
+            <h3>How to Avoid Interrupting</h3>
+            <ul>
+              <li>
+                <strong>Practice Patience:</strong> Wait for others to finish
+                speaking before you contribute.
+              </li>
+              <li>
+                <strong>Use Non-Verbal Cues:</strong> Use body language to
+                signal you would like to speak.
+              </li>
+              <li>
+                <strong>Keep a Notepad:</strong> Write down urgent thoughts to
+                share later.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 24: Lack of Preparation or Knowledge -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Lack of Preparation or Knowledge</h1>
+          <p class="slide-subtitle">The importance of being informed</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Definition</h3>
+            <p>
+              A lack of preparation refers to participating in a discussion
+              without sufficient knowledge of the topic. This can lead to vague,
+              inaccurate, or irrelevant contributions that do not add value to
+              the conversation.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Impact on Group Dynamics</h3>
+            <ul>
+              <li>
+                <strong>Lowering the Quality:</strong> Diminishes the overall
+                quality of the discussion.
+              </li>
+              <li>
+                <strong>Eroding Credibility:</strong> Makes a participant seem
+                unprepared or unengaged.
+              </li>
+              <li>
+                <strong>Frustrating Others:</strong> May frustrate others who
+                have invested time in preparation.
+              </li>
+            </ul>
+          </div>
+          <div class="text-section">
+            <h3>How to Avoid Lack of Preparation</h3>
+            <ul>
+              <li>
+                <strong>Research Thoroughly:</strong> Understand the topic and
+                different perspectives.
+              </li>
+              <li>
+                <strong>Clarify Beforehand:</strong> Ask for clarification if
+                the topic is unclear.
+              </li>
+              <li>
+                <strong>Focus on Key Points:</strong> Prioritize the most
+                important points if time is limited.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 25: Emotional Reactions -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Emotional Reactions</h1>
+          <p class="slide-subtitle">Staying composed under pressure</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Definition</h3>
+            <p>
+              Emotional reactions refer to participants responding to comments
+              or situations with strong emotions—whether frustration, anger,
+              defensiveness, or even excessive enthusiasm—that interfere with
+              their ability to engage constructively.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Impact on Group Dynamics</h3>
+            <ul>
+              <li>
+                <strong>Derailing the Conversation:</strong> Shifts focus away
+                from the topic toward personal feelings.
+              </li>
+              <li>
+                <strong>Intimidating Others:</strong> Can discourage others from
+                sharing their viewpoints.
+              </li>
+              <li>
+                <strong>Damaging Relationships:</strong> Can harm rapport
+                between group members.
+              </li>
+            </ul>
+          </div>
+          <div class="text-section">
+            <h3>How to Avoid Emotional Reactions</h3>
+            <ul>
+              <li>
+                <strong>Practice Emotional Regulation:</strong> Recognize when
+                emotions are flaring and take a moment.
+              </li>
+              <li>
+                <strong>Focus on Facts, Not Feelings:</strong> Emphasize logical
+                arguments and evidence.
+              </li>
+              <li>
+                <strong>Maintain Professionalism:</strong> Keep your tone
+                respectful, even during disagreements.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 26: Being Overly Aggressive or Passive -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Being Overly Aggressive or Passive</h1>
+          <p class="slide-subtitle">Finding the right balance</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Definition</h3>
+            <p>
+              Being overly aggressive involves dominating the conversation,
+              dismissing others' ideas, or using confrontational language. On
+              the opposite end, being overly passive refers to failing to
+              contribute or engage meaningfully in the discussion.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Impact on Group Dynamics</h3>
+            <ul>
+              <li>
+                <strong>Aggression Creates Conflict:</strong> Creates a hostile
+                environment where others feel attacked.
+              </li>
+              <li>
+                <strong>Passivity Leads to Unproductive Discussions:</strong>
+                Results in a shallow or incomplete discussion.
+              </li>
+              <li>
+                <strong>Imbalance in Contributions:</strong> Results in an
+                unbalanced conversation with too much or too little input.
+              </li>
+            </ul>
+          </div>
+          <div class="text-section">
+            <h3>How to Find Balance</h3>
+            <ul>
+              <li>
+                <strong>Find a Middle Ground:</strong> Balance assertiveness
+                with respect.
+              </li>
+              <li>
+                <strong>Respect Others' Perspectives:</strong> Frame
+                disagreements respectfully.
+              </li>
+              <li>
+                <strong>Engage Actively:</strong> Challenge yourself to speak up
+                at least once in every discussion.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 27: Evaluation Criteria in Group Discussions -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Evaluation Criteria in Group Discussions</h1>
+          <p class="slide-subtitle">What evaluators look for</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Group discussions (GD) are a common method used to evaluate
+              candidates' suitability for academic programs, job roles, or other
+              opportunities. Evaluators typically focus on specific competencies
+              that reflect an individual's communication, problem-solving,
+              teamwork, and leadership skills.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Five Key Areas of Assessment</h3>
+            <ul>
+              <li>
+                <strong>Communication Skills:</strong> Ability to express ideas
+                clearly, listen actively, and engage effectively.
+              </li>
+              <li>
+                <strong>Analytical and Critical Thinking:</strong> Ability to
+                assess information objectively and provide logical arguments.
+              </li>
+              <li>
+                <strong>Teamwork and Leadership:</strong> Ability to work
+                effectively with others and guide discussions constructively.
+              </li>
+              <li>
+                <strong>Time Management:</strong> Ability to manage speaking
+                time and keep discussions on track.
+              </li>
+              <li>
+                <strong>Creativity and Innovation:</strong> Ability to think
+                outside the box and propose unique ideas.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Understanding these evaluation criteria is crucial for
+              participants, as it helps them prepare and perform effectively.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 28: Communication Skills Evaluation -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Communication Skills Evaluation</h1>
+          <p class="slide-subtitle">How communication is assessed</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Definition</h3>
+            <p>
+              Communication skills refer to the ability to express ideas
+              clearly, listen actively, and engage effectively with other
+              participants.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Importance in Group Discussions</h3>
+            <ul>
+              <li>
+                <strong>Clarity of Expression:</strong> Ensures points are
+                understood by both the group and evaluators.
+              </li>
+              <li>
+                <strong>Active Listening:</strong> Involves paying attention to
+                the speaker and responding thoughtfully.
+              </li>
+              <li>
+                <strong>Non-verbal Communication:</strong> Body language, eye
+                contact, and gestures reinforce the spoken message.
+              </li>
+            </ul>
+          </div>
+          <div class="text-section">
+            <h3>How It Is Evaluated</h3>
+            <ul>
+              <li>
+                Ability to articulate ideas fluently with appropriate language
+                and tone.
+              </li>
+              <li>
+                Active listening demonstrated by responding to and building on
+                others' points.
+              </li>
+              <li>Effective use of non-verbal cues to support the message.</li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Tips for Improvement: Practice expressing ideas clearly, work on
+              listening skills, and be mindful of non-verbal signals.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 29: Analytical and Critical Thinking Evaluation -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">
+            Analytical and Critical Thinking Evaluation
+          </h1>
+          <p class="slide-subtitle">Assessing thought processes</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Definition</h3>
+            <p>
+              Analytical and critical thinking refer to the ability to assess
+              information objectively, break down complex issues, and provide
+              well-reasoned, logical arguments or solutions.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Importance in Group Discussions</h3>
+            <ul>
+              <li>
+                <strong>Evaluating Arguments:</strong> Participants analyze
+                different perspectives and identify strengths and weaknesses.
+              </li>
+              <li>
+                <strong>Problem-Solving:</strong> Helps dissect complex issues
+                and propose practical solutions.
+              </li>
+              <li>
+                <strong>Avoiding Bias:</strong> Critical thinkers consider all
+                aspects of an issue before forming opinions.
+              </li>
+            </ul>
+          </div>
+          <div class="text-section">
+            <h3>How It Is Evaluated</h3>
+            <ul>
+              <li>
+                Ability to identify core issues and analyze them logically.
+              </li>
+              <li>
+                Offering solutions or viewpoints supported by evidence or
+                reasoning.
+              </li>
+              <li>
+                Challenging flawed arguments in a constructive and respectful
+                manner.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Tips for Improvement: Engage in activities requiring critical
+              thinking, practice breaking down complex topics, and develop the
+              habit of questioning assumptions.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 30: Teamwork and Leadership Evaluation -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Teamwork and Leadership Evaluation</h1>
+          <p class="slide-subtitle">Assessing collaborative abilities</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Definition</h3>
+            <p>
+              Teamwork and leadership involve working effectively with others,
+              contributing to the group's objectives, and guiding the group
+              toward a productive outcome without being domineering.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Importance in Group Discussions</h3>
+            <ul>
+              <li>
+                <strong>Collaborative Approach:</strong> GDs are collaborative
+                exercises requiring respect for different opinions.
+              </li>
+              <li>
+                <strong>Leading Constructively:</strong> Leadership means
+                guiding discussions constructively, not dominating.
+              </li>
+              <li>
+                <strong>Balancing Assertiveness and Respect:</strong> Good
+                leaders assert opinions while respecting others.
+              </li>
+            </ul>
+          </div>
+          <div class="text-section">
+            <h3>How It Is Evaluated</h3>
+            <ul>
+              <li>
+                Ability to engage with others and foster a collaborative
+                atmosphere.
+              </li>
+              <li>
+                Demonstrating leadership by guiding discussions constructively.
+              </li>
+              <li>
+                Showing respect for others' contributions and encouraging
+                balanced participation.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Tips for Improvement: Work on balancing assertiveness and
+              collaboration, practice leading discussions, and develop conflict
+              resolution skills.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 31: Time Management Evaluation -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Time Management Evaluation</h1>
+          <p class="slide-subtitle">Assessing efficiency and focus</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Definition</h3>
+            <p>
+              Time management refers to the ability to manage one's own speaking
+              time effectively and ensure that the group discussion stays on
+              track within the given time frame.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Importance in Group Discussions</h3>
+            <ul>
+              <li>
+                <strong>Efficient Contribution:</strong> Ensures participants
+                can express views clearly and concisely.
+              </li>
+              <li>
+                <strong>Keeping the Group on Track:</strong> Helps the group
+                stay focused on the topic and cover important points.
+              </li>
+              <li>
+                <strong>Avoiding Time-Wasting:</strong> Prevents excessive focus
+                on trivial points or going off-topic.
+              </li>
+            </ul>
+          </div>
+          <div class="text-section">
+            <h3>How It Is Evaluated</h3>
+            <ul>
+              <li>
+                Ability to express ideas clearly and concisely within time
+                limits.
+              </li>
+              <li>
+                Contributing without interrupting the flow or dominating the
+                conversation.
+              </li>
+              <li>
+                Helping the group stay focused on key issues within the allotted
+                time.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Tips for Improvement: Practice summarizing points concisely, be
+              mindful of time limits, and learn to prioritize key points.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 32: Creativity and Innovation Evaluation -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Creativity and Innovation Evaluation</h1>
+          <p class="slide-subtitle">Assessing original thinking</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Definition</h3>
+            <p>
+              Creativity and innovation refer to the ability to think outside
+              the box, propose unique ideas, and approach problems from novel
+              perspectives.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Importance in Group Discussions</h3>
+            <ul>
+              <li>
+                <strong>Offering Fresh Perspectives:</strong> Brings new ideas
+                that others may not have considered.
+              </li>
+              <li>
+                <strong>Enhancing Problem-Solving:</strong> Key to exploring
+                alternative solutions that are not immediately obvious.
+              </li>
+              <li>
+                <strong>Breaking Conventional Thinking:</strong> Drives
+                discussions in new and exciting directions.
+              </li>
+            </ul>
+          </div>
+          <div class="text-section">
+            <h3>How It Is Evaluated</h3>
+            <ul>
+              <li>
+                Ability to offer unique insights or approaches to the topic.
+              </li>
+              <li>Proposing creative solutions to problems or challenges.</li>
+              <li>
+                Encouraging the group to explore new ideas and break from
+                conventional thinking.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Tips for Improvement: Engage in activities that stimulate
+              creativity, practice thinking of alternative solutions, and
+              encourage creative thinking in group settings.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 33: How to Prepare for Group Discussions -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">How to Prepare for Group Discussions</h1>
+          <p class="slide-subtitle">Strategies for success</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Preparation is the foundation of a successful group discussion
+              (GD), as it enables participants to engage confidently, contribute
+              valuable insights, and perform effectively under evaluation. GDs
+              are not just about knowledge, but about how well one communicates,
+              listens, collaborates, and thinks critically.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Four Key Preparation Strategies</h3>
+            <ul>
+              <li>
+                <strong>Researching Common Topics:</strong> Building knowledge
+                on recurring themes and current issues.
+              </li>
+              <li>
+                <strong>Practicing Mock GDs:</strong> Simulating the actual GD
+                experience to build confidence and identify weaknesses.
+              </li>
+              <li>
+                <strong>Building General Knowledge and Awareness:</strong>
+                Developing a broad understanding of various subjects.
+              </li>
+              <li>
+                <strong>Enhancing Soft Skills:</strong> Improving interpersonal
+                effectiveness through practice and feedback.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              Effective preparation involves not just acquiring knowledge but
+              also refining soft skills, practicing in realistic scenarios, and
+              staying informed about current events.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 34: Researching Common Topics -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Researching Common Topics</h1>
+          <p class="slide-subtitle">Building a knowledge foundation</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Importance of Research</h3>
+            <p>
+              Researching common topics is a critical first step in GD
+              preparation. Group discussions often revolve around trending or
+              recurring themes across various fields, from socio-economic issues
+              to political affairs, business trends, and environmental
+              challenges.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Why Research Matters</h3>
+            <ul>
+              <li>
+                <strong>Contextual Understanding:</strong> Builds a deeper
+                understanding of the topic's background and key debates.
+              </li>
+              <li>
+                <strong>Fact-Based Arguments:</strong> Provides credible data,
+                statistics, and examples to support viewpoints.
+              </li>
+              <li>
+                <strong>Anticipating Counterarguments:</strong> Enables
+                participants to prepare responses to potential opposition.
+              </li>
+            </ul>
+          </div>
+          <div class="text-section">
+            <h3>Key Areas to Research</h3>
+            <ul>
+              <li>
+                <strong>Current Affairs:</strong> Global, national, and local
+                news, particularly in politics, economics, and social movements.
+              </li>
+              <li>
+                <strong>Industry-Specific Topics:</strong> Trends, innovations,
+                challenges, and case studies within relevant fields.
+              </li>
+              <li>
+                <strong>General Knowledge Topics:</strong> Environmental
+                sustainability, technology, healthcare, education reforms.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 35: Practicing Mock GDs -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Practicing Mock GDs</h1>
+          <p class="slide-subtitle">Simulating the experience</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Importance of Mock GDs</h3>
+            <p>
+              Mock GDs are an essential part of preparation as they replicate
+              the actual group discussion experience. These practice sessions
+              help candidates get accustomed to the dynamics of a GD, including
+              time management, turn-taking, and dealing with pressure.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Why Mock GDs Are Important</h3>
+            <ul>
+              <li>
+                <strong>Simulation of Real Scenarios:</strong> Prepares
+                candidates to think and react quickly in real-time.
+              </li>
+              <li>
+                <strong>Building Confidence:</strong> Helps overcome initial
+                nervousness or hesitation in a low-stakes environment.
+              </li>
+              <li>
+                <strong>Identifying Areas for Improvement:</strong> Provides
+                feedback on content, flow, and communication.
+              </li>
+            </ul>
+          </div>
+          <div class="text-section">
+            <h3>How to Make the Most of Mock GDs</h3>
+            <ul>
+              <li>
+                <strong>Record and Review Sessions:</strong> Enables
+                self-evaluation of performance.
+              </li>
+              <li>
+                <strong>Group Discussions with Peers:</strong> Allows for peer
+                feedback and collaborative learning.
+              </li>
+              <li>
+                <strong>Seek Professional Feedback:</strong> Provides expert
+                insights for refining both content and delivery.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 36: Building General Knowledge and Awareness -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Building General Knowledge and Awareness</h1>
+          <p class="slide-subtitle">Broadening your perspective</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Importance of General Knowledge</h3>
+            <p>
+              General knowledge and awareness encompass a broad understanding of
+              a variety of topics that can arise in a group discussion, ranging
+              from politics to science, technology, social issues, and more.
+              Developing this awareness is crucial for excelling in GDs.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>The Importance of General Knowledge</h3>
+            <ul>
+              <li>
+                <strong>Broadening Perspectives:</strong> Enables participants
+                to contribute thoughtfully on diverse subjects.
+              </li>
+              <li>
+                <strong>Connecting Ideas Across Fields:</strong> Helps make
+                insightful connections between different areas.
+              </li>
+              <li>
+                <strong>Staying Current and Relevant:</strong> Allows for timely
+                contributions based on recent events.
+              </li>
+            </ul>
+          </div>
+          <div class="text-section">
+            <h3>Ways to Build General Knowledge</h3>
+            <ul>
+              <li>
+                <strong>Read Widely:</strong> Newspapers, magazines, books, and
+                online articles across different genres.
+              </li>
+              <li>
+                <strong>Follow Reliable News Sources:</strong> Stay informed
+                about major events and trends.
+              </li>
+              <li>
+                <strong>Engage in Conversations:</strong> Discuss current events
+                with family, friends, or colleagues.
+              </li>
+              <li>
+                <strong>Explore Educational Platforms:</strong> TED, Coursera,
+                or edX offer insights on various topics.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 37: Enhancing Soft Skills -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Enhancing Soft Skills</h1>
+          <p class="slide-subtitle">Developing interpersonal effectiveness</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Importance of Soft Skills</h3>
+            <p>
+              Soft skills are essential for excelling in group discussions, as
+              they influence how participants communicate, collaborate, and
+              manage group dynamics. Enhancing soft skills such as active
+              listening, emotional intelligence, teamwork, and adaptability can
+              significantly boost performance in a GD.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Key Soft Skills for Group Discussions</h3>
+            <ul>
+              <li>
+                <strong>Active Listening:</strong> Fully focusing on the speaker
+                and responding thoughtfully.
+              </li>
+              <li>
+                <strong>Empathy:</strong> Understanding and respecting diverse
+                viewpoints.
+              </li>
+              <li>
+                <strong>Collaboration and Teamwork:</strong> Working well with
+                others and building on ideas.
+              </li>
+              <li>
+                <strong>Emotional Intelligence:</strong> Remaining calm and
+                composed in challenging situations.
+              </li>
+            </ul>
+          </div>
+          <div class="text-section">
+            <h3>How to Enhance Soft Skills</h3>
+            <ul>
+              <li>
+                <strong>Participate in Group Activities:</strong> Team sports,
+                volunteer work, or collaborative projects.
+              </li>
+              <li>
+                <strong>Practice Active Listening:</strong> Focus on
+                understanding before responding in everyday conversations.
+              </li>
+              <li>
+                <strong>Seek Feedback:</strong> Ask for feedback on
+                interpersonal skills from friends, colleagues, or mentors.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 38: Examples of GD Topics -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Examples of GD Topics</h1>
+          <p class="slide-subtitle">Categories and examples</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              Group discussions often cover a wide range of topics, designed to
+              assess how well participants can think critically, communicate
+              clearly, and present balanced perspectives on various subjects.
+              Common group discussion topics typically fall into several
+              categories.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Five Categories of GD Topics</h3>
+            <ul>
+              <li>
+                <strong>Current Affairs:</strong> Recent events and their
+                significance and implications.
+              </li>
+              <li>
+                <strong>Social Issues:</strong> Contemporary societal challenges
+                and potential solutions.
+              </li>
+              <li>
+                <strong>Business and Economy:</strong> Market dynamics,
+                financial policies, and corporate strategies.
+              </li>
+              <li>
+                <strong>Technological Advancements:</strong> The evolution of
+                technology and its influence on society.
+              </li>
+              <li>
+                <strong>Ethical Dilemmas:</strong> Moral complexities and
+                trade-offs between right and wrong.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              By practicing with these examples, candidates can develop the
+              skills needed to navigate complex discussions with confidence and
+              clarity.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 39: Current Affairs Topics -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Current Affairs Topics</h1>
+          <p class="slide-subtitle">Staying informed about global events</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Overview</h3>
+            <p>
+              Group discussions on current affairs test a participant's
+              awareness of recent events and their ability to analyze the
+              significance and implications of these developments. These topics
+              often require participants to stay updated with global and
+              national news, political changes, and other timely events.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Examples of Topics</h3>
+            <ul>
+              <li>
+                <strong>The Impact of Global Climate Change Agreements:</strong>
+                Effectiveness of international agreements like the Paris Climate
+                Accord.
+              </li>
+              <li>
+                <strong>Artificial Intelligence (AI) in Governance:</strong> Use
+                of AI in government decision-making and its impact on politics
+                and security.
+              </li>
+              <li>
+                <strong
+                  >The Economic Repercussions of Geopolitical Tensions:</strong
+                >
+                Impact of conflicts between nations on global economy and trade.
+              </li>
+              <li>
+                <strong>Post-Pandemic Economic Recovery Strategies:</strong>
+                Policies for long-term recovery from economic downturns.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              These topics require participants to have up-to-date knowledge and
+              the ability to analyze complex global issues.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 40: Social Issues Topics -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Social Issues Topics</h1>
+          <p class="slide-subtitle">Addressing societal challenges</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Overview</h3>
+            <p>
+              Social issues as GD topics focus on contemporary societal
+              challenges, from inequality and education to healthcare and human
+              rights. These discussions allow participants to demonstrate their
+              ability to think critically about social problems and suggest
+              viable solutions.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Examples of Topics</h3>
+            <ul>
+              <li>
+                <strong
+                  >The Role of Education in Bridging Economic
+                  Inequality:</strong
+                >
+                How access to quality education can reduce disparities.
+              </li>
+              <li>
+                <strong>Gender Equality in the Workplace:</strong> Progress and
+                challenges in promoting equality at work.
+              </li>
+              <li>
+                <strong
+                  >Mental Health Awareness and Its Stigma in Society:</strong
+                >
+                Improvement in reducing stigma and further steps needed.
+              </li>
+              <li>
+                <strong>Social Media's Impact on Youth Mental Health:</strong>
+                Influence of social media on younger generations and
+                regulations.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              These topics require participants to understand complex social
+              dynamics and propose thoughtful solutions.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 41: Business and Economy Topics -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Business and Economy Topics</h1>
+          <p class="slide-subtitle">Understanding market dynamics</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Overview</h3>
+            <p>
+              Group discussions on business and economic topics assess a
+              participant's understanding of market dynamics, financial
+              policies, corporate strategies, and entrepreneurial trends.
+              Participants are expected to analyze business environments and
+              offer insights into global and local economic shifts.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Examples of Topics</h3>
+            <ul>
+              <li>
+                <strong
+                  >The Rise of Digital Currencies and Their Economic
+                  Impact:</strong
+                >
+                Influence of cryptocurrencies on global financial markets.
+              </li>
+              <li>
+                <strong>Corporate Social Responsibility (CSR):</strong> Whether
+                CSR is a marketing strategy or genuine effort.
+              </li>
+              <li>
+                <strong
+                  >The Gig Economy and Its Impact on Traditional
+                  Employment:</strong
+                >
+                How platforms like Uber reshape the job market.
+              </li>
+              <li>
+                <strong
+                  >The Effectiveness of Government Policies in Controlling
+                  Inflation:</strong
+                >
+                Evaluation of monetary policies and their impact.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              These topics require participants to understand economic
+              principles and business practices.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 42: Technological Advancements Topics -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Technological Advancements Topics</h1>
+          <p class="slide-subtitle">Exploring the impact of technology</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Overview</h3>
+            <p>
+              Technology-related topics in group discussions encourage
+              participants to examine the rapid evolution of technology and its
+              influence on various industries, societal behaviors, and ethical
+              considerations. These topics often require an understanding of
+              both the benefits and challenges posed by new technologies.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Examples of Topics</h3>
+            <ul>
+              <li>
+                <strong>The Impact of Automation on Employment:</strong> How AI
+                and robotics affect job opportunities and mitigation strategies.
+              </li>
+              <li>
+                <strong
+                  >5G Technology and Its Role in Shaping the Future:</strong
+                >
+                How 5G networks will revolutionize industries and challenges.
+              </li>
+              <li>
+                <strong
+                  >Ethical Concerns Surrounding the Use of Big Data:</strong
+                >
+                Implications of collecting and analyzing massive amounts of
+                personal data.
+              </li>
+              <li>
+                <strong
+                  >The Future of Remote Work in a Post-Pandemic World:</strong
+                >
+                How technological tools are changing the traditional office
+                setup.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              These topics require participants to balance technological
+              understanding with ethical considerations.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 43: Ethical Dilemmas Topics -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Ethical Dilemmas Topics</h1>
+          <p class="slide-subtitle">Navigating moral complexities</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <h3>Overview</h3>
+            <p>
+              Ethical dilemmas in group discussions challenge participants to
+              navigate moral complexities and present arguments based on ethics,
+              principles, and societal values. These topics often involve
+              debating trade-offs between right and wrong, public interest, and
+              individual freedoms.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Examples of Topics</h3>
+            <ul>
+              <li>
+                <strong
+                  >Should Genetic Engineering Be Used to Design Babies?</strong
+                >
+                Ethical considerations of genetic modification techniques.
+              </li>
+              <li>
+                <strong>Data Privacy vs. National Security:</strong> Whether
+                governments should prioritize security over individual privacy.
+              </li>
+              <li>
+                <strong
+                  >Ethics of Artificial Intelligence in Autonomous
+                  Vehicles:</strong
+                >
+                Moral implications of self-driving cars making life-or-death
+                decisions.
+              </li>
+              <li>
+                <strong
+                  >Is Capital Punishment Justifiable in Modern Society?</strong
+                >
+                Whether the death penalty is an ethical form of punishment.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              These topics require participants to consider multiple ethical
+              frameworks and articulate well-reasoned positions.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 44: Let's Sum Up -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Let's Sum Up</h1>
+          <p class="slide-subtitle">Key takeaways from group discussions</p>
+        </div>
+        <div class="slide-content">
+          <div class="text-section">
+            <p>
+              In this unit, we explored the critical aspects of group
+              discussions (GDs), an integral part of many selection processes.
+              We began by defining group discussions and understanding their
+              purpose and importance in assessing a candidate's communication,
+              analytical, and teamwork skills.
+            </p>
+          </div>
+          <div class="list-section">
+            <h3>Key Points Covered</h3>
+            <ul>
+              <li>
+                Various types of GDs, including topic-based, case study-based,
+                and abstract GDs.
+              </li>
+              <li>
+                Key roles such as moderators, participants, and observers in
+                group discussions.
+              </li>
+              <li>
+                Essential techniques for effective participation, including
+                active listening and structured responses.
+              </li>
+              <li>
+                Common mistakes, evaluation criteria, and preparation strategies
+                for success in GDs.
+              </li>
+              <li>
+                Examples of typical GD topics, ranging from current affairs to
+                ethical dilemmas.
+              </li>
+            </ul>
+          </div>
+          <div class="highlight-box">
+            <p>
+              By understanding these aspects, participants can enhance their
+              performance in group discussions and make a strong impression
+              during selection processes.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 45: Unit End Exercise -->
+      <div class="slide">
+        <div class="slide-header">
+          <h1 class="slide-title">Unit End Exercise</h1>
+          <p class="slide-subtitle">Test your understanding</p>
+        </div>
+        <div class="slide-content">
+          <div class="list-section">
+            <ol>
+              <li>
+                Define group discussions and explain their purpose in the
+                selection process.
+              </li>
+              <li>
+                What key skills are typically assessed during a group
+                discussion?
+              </li>
+              <li>
+                Discuss the differences between topic-based and abstract group
+                discussions.
+              </li>
+              <li>
+                Explain the roles of moderators, participants, and observers in
+                a group discussion.
+              </li>
+              <li>
+                List and describe techniques for effective participation in
+                group discussions.
+              </li>
+              <li>
+                Identify and explain common mistakes made during group
+                discussions.
+              </li>
+              <li>
+                What evaluation criteria are typically used to assess
+                performance in a group discussion?
+              </li>
+              <li>
+                How can candidates prepare effectively for group discussions?
+              </li>
+              <li>
+                Provide examples of group discussion topics based on current
+                affairs, social issues, and technological advancements.
+              </li>
+              <li>
+                Why is it important to balance leadership and teamwork during a
+                group discussion?
+              </li>
+            </ol>
+          </div>
+          <div class="highlight-box">
+            <p>
+              These exercises will help reinforce your understanding of group
+              discussions and prepare you for effective participation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Group Discussion - Professional Presentation</p>
+    </div>
+
+    <script>
+      // Navigation functionality
+      document.getElementById("topBtn").addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      document.getElementById("downBtn").addEventListener("click", function () {
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: "smooth",
+        });
+      });
+
+      // Progress bar functionality
+      window.addEventListener("scroll", function () {
+        const winScroll =
+          document.body.scrollTop || document.documentElement.scrollTop;
+        const height =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById("progressBar").style.width = scrolled + "%";
+      });
+
+      // Add fade-in animation to slides when they come into view
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".slide").forEach((slide) => {
+        slide.style.opacity = "0";
+        slide.style.transform = "translateY(20px)";
+        slide.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        observer.observe(slide);
+      });
+    </script>
+  </body>
+</html>
